@@ -18,7 +18,6 @@
 <body>
     <div id="top-bg">
         <div id="bg-lights"></div>
-        <div id="bg-buildings"></div>
     </div>
     
     <header>
@@ -69,9 +68,10 @@
             <span class="turquoise">}</span>
         </h3>
         <p>We'll commit our changes and get back to you</p>
-        <form onsubmit="onContactSubmit(this);">
+        <form onsubmit="onContactSubmit(this);" action="https://formspree.io/royi@extalio.com" method="POST">
             <input type="text" name="name" placeholder="Name" />
             <input type="tel" name="phone" placeholder="Phone Number" />
+            <input type="hidden" name="_next" value="https://extalio.com" />
             <input type="submit" name="submit" value="Submit" />
         </form>
     </div>
@@ -192,9 +192,7 @@ and     [ebp+ms_exec.registration.TryLevel], 0
 push    [ebp+p_ApcProcParam]
 mov     ecx, [ebp+p_ApcProc]
 call    ds:___guard_check_icall_fptr
-call    [ebp+p_ApcProc]
-mov     [ebp+ms_exec,registration.TryLevel], 0FFFFFFFEh
-call    lblDeactivateActivationContext</p>
+call    [ebp+p_ApcProc]</p>
                     <svg height="80" width="155">
                         <line x1="155" y1="1" x2="155" y2="35" style="stroke:rgb(256, 256, 256); stroke-width:1" />
                         <line x1="155" y1="35" x2="5" y2="35" style="stroke:rgb(256, 256, 256); stroke-width:1" />
@@ -241,8 +239,7 @@ leave</p>
                 </div>
                 <div id="right-result-ida-box" class="ida-box">
                     <div class="ida-box-toolbar"></div>
-<p>
-call    dword ptr ds:[21A03C]
+<p>call    dword ptr ds:[21A03C]
 test    eax, eax
 jnz     short 00218FF6
 push    21A7B4
@@ -321,9 +318,10 @@ call    dword ptr ds:[21A040]
             Let's find your next job 
             <span class="turquoise">}</span></h3>
         <p>We'll get back to you as soon as we can</p>
-        <form>
+        <form onsubmit="onContactSubmit(this);" action="https://formspree.io/contact@extalio.com" method="POST">
             <input type="text" name="name" placeholder="Name" />
             <input type="tel" name="phone" placeholder="Phone Number" />
+            <input type="hidden" name="_next" value="https://extalio.com" />
             <input type="submit" name="submit" value="Submit" />
         </form>
     </div>
