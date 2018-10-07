@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preload" href="/fonts/UbuntuMono-R.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Rajdhani-Medium.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Rajdhani-Bold.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Poppins-Regular.woff" as="font" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet" />
+    <script src="script.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f1d35" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <meta name="description" content="We are engineers who help engineers find engineering jobs." />
+    <title>Extalio</title>
+</head>
+<body>
+    <div id="top-bg">
+        <div id="bg-lights"></div>
+        <div id="bg-buildings"></div>
+    </div>
+    
+    <header>
+        <div id="header-content">
+            <h1><img src="images/Extalio.png" alt="Extalio" /></h1>
+            <nav>
+                <ul>
+                    <li>
+                        <button id="email-button" onclick="toggleEmail();">Contact</button>
+                        <div id="contact-email">
+                            <a href="mailto:contact@extalio.com">contact@extalio.com</a>
+                            <div id="email-address">contact@extalio.com</div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div id="slogan">
+        <h1>
+            We are 
+            <span class="turquoise">[</span><span class="bold">engineers</span><span class="turquoise">]</span>
+            who help
+            <span class="turquoise">[</span><span class="bold">engineers</span><span class="turquoise">]</span>
+            <br />
+            find 
+            <span class="turquoise">[</span><span class="bold">engineering</span><span class="turquoise">]</span> jobs;
+        </h1>
+    </div>
+    
+    <div id="terminal">
+        <div id="terminal-toolbar">
+            <svg height="10" width="100">
+                <circle cx="5" cy="5" r="4.5" fill="#fb2f23" />
+                <circle cx="20" cy="5" r="4.5" fill="#ffcc00" />
+                <circle cx="35" cy="5" r="4.5" fill="#61c005" />
+            </svg>
+        </div>
+        <div id="terminal-output">Welcome to Extalio!<br /><br /></div>
+        <div id="terminal-input"></div>
+    </div>
+    
+    <div class="contact-form">
+        <h3>
+            <span class="turquoise">{</span> 
+            Let's find your next job 
+            <span class="turquoise">}</span>
+        </h3>
+        <p>We'll commit our changes and get back to you</p>
+        <form onsubmit="onContactSubmit(this);">
+            <input type="text" name="name" placeholder="Name" />
+            <input type="tel" name="phone" placeholder="Phone Number" />
+            <input type="submit" name="submit" value="Submit" />
+        </form>
+    </div>
+    
+    <div id="bg-logo"></div>
+    
+    <section id="why">
+        <h2>
+            WHY <span class="turquoise">[</span> 
+            <img src="images/Extalio.png" alt="Extalio" /> 
+            <span class="turquoise">]</span>
+        </h2>
+        <div class="underline"></div>
+        <div id="ida-grid">
+            <div id="reason1-left-line">
+                <svg height="100%" width="100%">
+                    <line x1="100%" y1="0%" x2="0%" y2="0%" style="stroke:rgb(99, 255, 254); stroke-width:2" />
+                    <line x1="0%" y1="0%" x2="0%" y2="100%" style="stroke:rgb(99, 255, 254); stroke-width:2" />
+                </svg>
+            </div>
+            <div id="reason1" class="why-box">
+                <div class="why-toolbar">
+                    <svg height="10" width="50">
+                        <circle cx="5" cy="5" r="3.5" fill="#E55934" />
+                        <circle cx="17" cy="5" r="3.5" fill="#FDE74C" />
+                        <circle cx="29" cy="5" r="3.5" fill="#9BC53D" />
+                    </svg>
+                </div>
+                <p>
+                    We understand what's important for candidates,<br />
+                    we've been candaidates ourselves many times
+                </p>
+                <svg class="mobile-bottom-arrow" height="304" width="10">
+                    <line x1="5" y1="0" x2="5" y2="300" style="stroke:rgb(99, 255, 254); stroke-width:1" />
+                    <polygon points="0,299 10,299 5,304" style="fill:rgb(99, 255, 254);" />
+                </svg>
+                <svg class="bottom-arrow" height="252" width="10">
+                    <line x1="5" y1="0" x2="5" y2="250" style="stroke:rgb(99, 255, 254); stroke-width:1" />
+                    <polygon points="0,247 10,247 5,252" style="fill:rgb(99, 255, 254);" />
+                </svg>
+            </div>
+            <div id="reason1-right-line">
+                <svg height="100%" width="100%">
+                    <line x1="0%" y1="0%" x2="100%" y2="0%" style="stroke:rgb(99, 255, 254); stroke-width:2" />
+                    <line x1="100%" y1="0%" x2="100%" y2="100%" style="stroke:rgb(99, 255, 254); stroke-width:2" />
+                </svg>
+            </div>
+            <div id="reason2-line">
+                <svg height="100%" width="100%">
+                    <line x1="0%" y1="0%" x2="0%" y2="50%" style="stroke:rgb(99, 255, 254); stroke-width:2" />
+                    <line x1="0%" y1="50%" x2="100%" y2="50%" style="stroke:rgb(99, 255, 254); stroke-width:1" />
+                    <line x1="100%" y1="50%" x2="100%" y2="100%" style="stroke:rgb(99, 255, 254); stroke-width:2" />
+                </svg>
+            </div>
+            <div id="reason2" class="why-box">
+                <svg class="top-arrow" height="6" width="11">
+                    <polygon points="0,0 10,0 5,5" style="fill:rgb(99, 255, 254);" />
+                </svg>
+                <div class="why-toolbar">
+                    <svg height="10" width="50">
+                        <circle cx="5" cy="5" r="3.5" fill="#E55934" />
+                        <circle cx="17" cy="5" r="3.5" fill="#FDE74C" />
+                        <circle cx="29" cy="5" r="3.5" fill="#9BC53D" />
+                    </svg>
+                </div>
+                <p>
+                    We deeply evaluate candiates, <br />
+                    companies, teams and roles
+                </p>
+                <svg class="mobile-bottom-arrow" height="182" width="10">
+                    <line x1="5" y1="0" x2="5" y2="180" style="stroke:rgb(99, 255, 254); stroke-width:1" />
+                    <polygon points="0,177 10,177 5,182" style="fill:rgb(99, 255, 254);" />
+                </svg>
+                <div id="left-ida-box" class="ida-box">
+                    <div class="ida-box-toolbar"></div>
+<p>call    sub_10138
+dec     eax
+cmp     eax, 0
+jnz     short loc_10121
+mov     eax, ds:8000h
+jmp     far ptr 0:8000h</p>
+                    <svg height="80" width="155">
+                        <line x1="4" y1="1" x2="4" y2="35" style="stroke:rgb(256, 256, 256); stroke-width:1" />
+                        <line x1="4" y1="35" x2="150" y2="35" style="stroke:rgb(256, 256, 256); stroke-width:1" />
+                        <line x1="150" y1="35" x2="150" y2="70" style="stroke:rgb(256, 256, 256); stroke-width:1" />
+                        <polygon points="145,70 155,70 150,75" style="fill:rgb(256, 256, 256);" />
+                    </svg>
+                </div>
+            </div>
+            <div id="reason3-line">
+                <svg height="100%" width="100%">
+                    <line x1="100%" y1="0%" x2="100%" y2="50%" style="stroke:rgb(99, 255, 254); stroke-width:2" />
+                    <line x1="100%" y1="50%" x2="0%" y2="50%" style="stroke:rgb(99, 255, 254); stroke-width:1" />
+                    <line x1="0%" y1="50%" x2="0%" y2="100%" style="stroke:rgb(99, 255, 254); stroke-width:2" />
+                </svg>
+            </div>
+            <div id="reason3" class="why-box">
+                <svg class="top-arrow" height="6" width="11">
+                    <polygon points="0,0 10,0 5,5" style="fill:rgb(99, 255, 254);" />
+                </svg>
+                <div class="why-toolbar">
+                    <svg height="10" width="50">
+                        <circle cx="5" cy="5" r="3.5" fill="#E55934" />
+                        <circle cx="17" cy="5" r="3.5" fill="#FDE74C" />
+                        <circle cx="29" cy="5" r="3.5" fill="#9BC53D" />
+                    </svg>
+                </div>
+                <p>
+                    We help candidates<br />
+                    through the whole process.
+                </p>
+                <div id="right-ida-box" class="ida-box">
+                    <div class="ida-box-toolbar"></div>
+<p>mov     edx, esi
+lea     ecx, [ebp+var_40]
+call    RtlActivateActivationContextUnsafeFast(x,x)
+and     [ebp+ms_exec.registration.TryLevel], 0
+push    [ebp+p_ApcProcParam]
+mov     ecx, [ebp+p_ApcProc]
+call    ds:___guard_check_icall_fptr
+call    [ebp+p_ApcProc]
+mov     [ebp+ms_exec,registration.TryLevel], 0FFFFFFFEh
+call    lblDeactivateActivationContext</p>
+                    <svg height="80" width="155">
+                        <line x1="155" y1="1" x2="155" y2="35" style="stroke:rgb(256, 256, 256); stroke-width:1" />
+                        <line x1="155" y1="35" x2="5" y2="35" style="stroke:rgb(256, 256, 256); stroke-width:1" />
+                        <line x1="5" y1="35" x2="5" y2="70" style="stroke:rgb(256, 256, 256); stroke-width:1" />
+                        <polygon points="0,70 10,70 5,75" style="fill:rgb(256, 256, 256);" />
+                    </svg>
+                </div>
+            </div>
+            <div id="result" class="why-box">
+                <svg id="result-left-arrow" height="6" width="11">
+                    <polygon points="0,0 10,0 5,5" style="fill:rgb(99, 255, 254);" />
+                </svg>
+                <svg id="result-right-arrow" height="6" width="11">
+                    <polygon points="0,0 10,0 5,5" style="fill:rgb(99, 255, 254);" />
+                </svg>
+                <div class="why-toolbar">
+                    <svg height="10" width="50">
+                        <circle cx="5" cy="5" r="3.5" fill="#E55934" />
+                        <circle cx="17" cy="5" r="3.5" fill="#FDE74C" />
+                        <circle cx="29" cy="5" r="3.5" fill="#9BC53D" />
+                    </svg>
+                </div>
+                <p>
+                    Candidates land their perfect job
+                </p>
+                <div id="left-result-ida-box" class="ida-box">
+                    <div class="ida-box-toolbar"></div>
+<p>mov     al, [bp+drive_idx]
+push    ax
+push    large [bp+var_6]
+lea     ax, [bp+var_86]
+push    ax
+call    encrypt
+add     sp, 8
+pop     si
+leave</p>
+                    <svg height="200" width="315">
+                        <line x1="4" y1="51" x2="4" y2="85" style="stroke:rgb(256, 256, 256); stroke-width:1" />
+                        <line x1="4" y1="85" x2="190" y2="85" style="stroke:rgb(256, 256, 256); stroke-width:1" />
+                        <line x1="190" y1="85" x2="190" y2="5" style="stroke:rgb(256, 256, 256); stroke-width:1" />
+                        <line x1="190" y1="5" x2="310" y2="5" style="stroke:rgb(256, 256, 256); stroke-width:1" />
+                        <polygon points="310,0 310,10 315,5" style="fill:rgb(256, 256, 256);" />
+                    </svg>
+                </div>
+                <div id="right-result-ida-box" class="ida-box">
+                    <div class="ida-box-toolbar"></div>
+<p>
+call    dword ptr ds:[21A03C]
+test    eax, eax
+jnz     short 00218FF6
+push    21A7B4
+push    21A7C8
+call    dword ptr ds:[21A044]
+push    eax
+call    dword ptr ds:[21A040]
+</p>
+                    <svg height="200" width="315">
+                        <line x1="314" y1="51" x2="314" y2="85" style="stroke:rgb(256, 256, 256); stroke-width:1" />
+                        <line x1="314" y1="85" x2="120" y2="85" style="stroke:rgb(256, 256, 256); stroke-width:1" />
+                        <line x1="120" y1="85" x2="120" y2="5" style="stroke:rgb(256, 256, 256); stroke-width:1" />
+                        <line x1="120" y1="5" x2="5" y2="5" style="stroke:rgb(256, 256, 256); stroke-width:1" />
+                        <polygon points="10,0 10,10 5,5" style="fill:rgb(256, 256, 256);" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="blog">
+        <h2>
+            <img src="images/Extalio.png" alt="Extalio" /><span class="turquoise">.</span>Blog
+        </h2>
+        <div class="underline"></div>
+        <ul>
+            <li>
+                <h4>How to build your own operting system</h4>
+                <p>We will compile a compiler, use BIOS/UEFI to load GRUB which will load our OS, create an "Hello World!" kernel, build a kernel image, and finally boot from it.</p>
+                <a href="#">Read Article</a>
+            </li>
+            <li>
+                <h4>How to build your own operting system</h4>
+                <p>We will compile a compiler, use BIOS/UEFI to load GRUB which will load our OS, create an "Hello World!" kernel, build a kernel image, and finally boot from it.</p>
+                <a href="#">Read Article</a>
+            </li>
+            <li>
+                <h4>How to build your own operting system</h4>
+                <p>We will compile a compiler, use BIOS/UEFI to load GRUB which will load our OS, create an "Hello World!" kernel, build a kernel image, and finally boot from it.</p>
+                <a href="#">Read Article</a>
+            </li>
+        </ul>
+    </section>
+    
+    <section id="about">
+        <div id="about-bg"></div>
+        <h2>
+            About <span class="turquoise">[</span> 
+            <img src="images/Extalio.png" alt="Extalio" /> 
+            <span class="turquoise">]</span>
+        </h2>
+        <div class="underline"></div>
+        <ul>
+            <li>
+                <div id="cpu"></div>
+                <h4>We are 100% software engineers and security researchers</h4>
+            </li>
+            <li>
+                <div id="satellite"></div>
+                <h4>We are tech units alumni</h4>
+            </li>
+            <li>
+                <div id="code"></div>
+                <h4>We love technology</h4>
+            </li>
+            <li>
+                <div id="buildings"></div>
+                <h4>We've been working at all types of companies</h4>
+            </li>
+        </ul>
+    </section>
+    
+    <div class="contact-form">
+        <h3>
+            <span class="turquoise">{</span> 
+            Let's find your next job 
+            <span class="turquoise">}</span></h3>
+        <p>We'll get back to you as soon as we can</p>
+        <form>
+            <input type="text" name="name" placeholder="Name" />
+            <input type="tel" name="phone" placeholder="Phone Number" />
+            <input type="submit" name="submit" value="Submit" />
+        </form>
+    </div>
+    
+    <footer>
+        <h2><img src="images/Extalio.png" alt="Extalio" /></h2>
+        <ul>
+            <li>contact@extalio.com</li>
+            <li>© 2018 EXTALIO. All Rights Reserved.</li>
+        </ul>
+    </footer>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "url": "http://www.extalio.com",
+      "logo": "http://www.extalio.com/images/logo.png"
+      "name": "Extalio",
+      }
+    }
+    </script>
+    <script>initTerminal();</script>
+</body>
+</html>
