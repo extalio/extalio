@@ -336,7 +336,7 @@ function initTerminal() {
     
     inputs = candidateInputs;
     outputs = candidateOutputs;
-    runTimer(11);
+    runTimer(8);
 }
 
 function getParams() {
