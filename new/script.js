@@ -471,7 +471,7 @@ function toggleEmail() {
 }
 
 function onContactSubmit(form) {
-    nextPage = "http://extalio.com/?" + form.name.value + "@" + form.phone.value;
+    nextPage = "http://extalio.com/new/?" + form.name.value + "@" + form.phone.value;
     form._next.value = nextPage;
     return true;
 }
