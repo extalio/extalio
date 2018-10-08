@@ -327,7 +327,7 @@ function initTerminal() {
     
     var isMobile = document.documentElement.clientWidth < 700;
     if (isMobile) {
-        candidateInputs[2] = "ls -1";
+        candidateInputs[2] = "ls -1 Companies";
         candidateOutputs[2] = "Argus<br />Biocatch<br />Check Point<br />Dell<br />Google<br />Indepoi<br />Intezer<br />Microsoft<br />SafeBreach<br />Varonis"
         extalioInputs[0] = "ls -1";
         extalioOutputs[0] = mobileCompanies;
