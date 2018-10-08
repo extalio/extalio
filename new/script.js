@@ -356,7 +356,7 @@ function initContactScenario() {
     contactInputs = [mailCommand];
     contactOutputs = [''];
     contactInputs.push("cat confirm_contact.txt");
-    contactOutputs.push("We recieved your phone number successfully, we will call you soon")
+    contactOutputs.push("We received your phone number successfully, we will call you soon")
     inputs = contactInputs;
     outputs = contactOutputs;
     commandPrefix = 'extalio@xpc:~$ ';
