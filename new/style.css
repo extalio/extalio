@@ -299,7 +299,7 @@ header nav ul li button:hover {
 
 .contact-form input {
     background-color: #12223f;
-    color: rgba(99, 255, 254, 0.8);
+    color: rgba(99, 255, 254, 1);
     border: 1px solid #1c366b;
     border-radius: 1px;
     padding: 8px 12px;
@@ -311,7 +311,7 @@ header nav ul li button:hover {
 }
 
 .contact-form input::placeholder {
-    color: rgba(99, 255, 254, 0.8);
+    color: rgba(99, 255, 254, 0.7);
 }
 
 .contact-form input[type=submit] {
