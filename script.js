@@ -14,7 +14,7 @@ var candidateInputs = [
 // use \n to print lines separately
 var candidateOutputs = [
     "candidate", 
-    "Copmanies<br />Desktop<br />Documents<br />Downloads", 
+    "Companies<br />Desktop<br />Documents<br />Downloads", 
     // -r--r--r-- 1 owner group filesize Aug 21 15:07 Filename
     `-rw-r----- 1 argus      candidates 3127 Feb 05 05:29 Argus
 -rw-r----- 1 friend     friends    1340 Feb 22 20:34 Biocatch
