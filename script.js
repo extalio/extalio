@@ -325,6 +325,7 @@ function initTerminal() {
         return;
     }
     
+	var timerLength = 5;
     var isMobile = document.documentElement.clientWidth < 700;
     if (isMobile) {
         candidateInputs[2] = "ls -1 Companies";
@@ -332,11 +333,12 @@ function initTerminal() {
         extalioInputs[0] = "ls -1";
         extalioOutputs[0] = mobileCompanies;
         extalioArt = extalioArtMobile;
+		timerLength = 8;
     }
     
     inputs = candidateInputs;
     outputs = candidateOutputs;
-    runTimer(8);
+    runTimer(timerLength);
 }
 
 function getParams() {
@@ -400,7 +402,7 @@ function simulateTerminal() {
     
     // run commands
     inputElement.innerHTML = commandPrefix;
-    setTimeout(typeText, 1000);
+    setTimeout(typeText, 2000);
 }
 
 function switchUser() {
@@ -450,7 +452,7 @@ function printLines(lines) {
     outputElement.innerHTML += lines.shift();
     outputElement.innerHTML += "<br />";
     outputElement.scrollTop = outputElement.scrollHeight;
-    setTimeout(printLines, 25, lines);
+    setTimeout(printLines, 20, lines);
 }
 
 function toggleEmail() {
