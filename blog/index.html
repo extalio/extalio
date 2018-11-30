@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preload" href="/fonts/UbuntuMono-R.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Rajdhani-Medium.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Rajdhani-Bold.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Poppins-Regular.woff" as="font" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet" />
+    <script src="/scripts.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f1d35" />
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+    <meta name="description" content="We are engineers who help engineers find engineering jobs." />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127131650-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-127131650-1');
+    </script>
+    <title>Extalio</title>
+</head>
+<body>
+    <div id="top-bg">
+        <div id="bg-lights"></div>
+    </div>
+    
+    <header>
+        <div id="header-content">
+            <h1>
+                <img src="/images/Extalio.png" alt="Extalio" /><span class="turquoise">.</span>Blog
+            </h1>
+            <nav>
+                <ul>
+                    <li>
+                        <button id="email-button" onclick="toggleEmail();">Contact</button>
+                        <div id="contact-email">
+                            <a href="mailto:contact@extalio.com">contact@extalio.com</a>
+                            <div id="email-address">contact@extalio.com</div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section id="blog">
+        <h2>
+            <img src="/images/Extalio.png" alt="Extalio" /><span class="turquoise">.</span>Blog
+        </h2>
+        <div class="underline"></div>
+        <ul>
+            <li>
+                <h4>Title</h4>
+                <p>Summary</p>
+                <a href="#">Read Article</a>
+            </li>
+            <li>
+                <h4>Title</h4>
+                <p>Summary</p>
+                <a href="#">Read Article</a>
+            </li>
+            <li>
+                <h4>Title</h4>
+                <p>Summary</p>
+                <a href="#">Read Article</a>
+            </li>
+        </ul>
+    </section>
+    
+    <section id="article">
+        <h2>
+            Operating Systems Introduction
+        </h2>
+        <div class="underline"></div>
+        <p>
+            This article in an intro to OS development, its basics, and concepts. It is supposed to give a glance into the journey of developing an OS from scratch. It is not intended to be a full guide at all, but to give a direction and understanding in high-level. For further details, you can search Google.
+        </p>
+        <h4>
+            Requirements
+        </h4>
+        <p>
+            I assume you are a developer or researcher and you have a basic understanding of OS internals and computer hardware.
+        </p>
+
+        <h4>
+            How do we start?
+        </h4>
+        <p>
+            We have hardware, and we want it to run our code. First of all, we need to understand how the hardware bootstraps and understand how we make it run our code.
+        </p>
+        
+        <h4>Boot Sequence</h4>
+        <p>
+            When we power on our PC, the firmware of the motherboard (also known as BIOS or UEFI) starts to run, it does some hardware checks (called POST, or Power On Self Test) and looks for software to run next. The software it looks for is the bootloader. The BIOS looks for a bootloader in hardware devices (e.g., hard disk, CD, network) at a specific location with a magic signature. It loads the bootloader to the memory and runs it. The bootloader then does a small setup and looks for the next software to run which is our OS. It looks for it at a pre-defined location with a magic signature that contains our OS code which is not loaded to memory and run.. Then it loads the code to memory and runs it. This is our OS code running now!This article in an intro to OS development, its basics, and concepts. It is supposed to give a glance into the journey of developing an OS from scratch. It is not intended to be a full guide at all, but to give a direction and understanding in high-level. For further details, you can search Google.
+        </p>
+        <h4>
+            Now we start with os dev
+        </h4>
+        <p>
+            As the OS we have limitless power but unfortunately can't relly on any dependencies. 
+            As the OS, we can do whatever we want, but we will have to work very hard for it, we cannot rely on any dependency. 
+            We don’t have any API the OS usually provides. 
+            We don’t have drivers: no network, filesystem, monitor, or keyboard. 
+            We can’t use any 3rd-party libraries, not even the C standard library.
+            We can’t even use a standard C compiler.
+            There is no user-space, everything is now kernel-space.
+        </p>
+
+        <h4>
+            What do we have?
+        </h4>
+        <p>
+            We have RAM, CPU and its Assembly instructions. That’s it.
+        </p>
+
+        <h4>
+            Let’s start with C
+        </h4>
+        <p>
+            Writing code in C is much better than writing in Assembly, so we need a compiler for that. We could use a normal compiler with some configurations, but it’s recommended to compile your own compiler (although you’ll have to wait ~30 minutes for it to compile). The default compiler assumes it compiles a software for the same system it runs on, so the compiled software will also depend on that system. We need a compiler that doesn’t depend on anything because we don’t have anything. A compiler that runs on a system but compiles code for another system is called cross-compiler. 
+        </p>
+
+        <h4>
+            Drivers
+        </h4>
+        <p>
+            In order to do something interesting, we need to interact with more hardware devices such as monitor, network, and keyboard. In order to do that we need to write some drivers. A driver is a software that communicates directly with hardware devices.
+        </p>
+        <p>
+            There are 2 ways for communicating with devices: <br />
+            - Mapped memory - a pre-defined address space with a pre-defined purpose that we read and write to, together with the hardware device. <br />
+            - in and out assembly instructions (called also I/O ports) - they are very similar to send/recv functions in sockets.
+        </p>
+        <p>
+            There are 2 hard things about drivers: <br />
+            - Each hardware device has its own behavior and protocol and they are poorly documented if documented at all.<br />
+            - They usually run in kernel-mode which gives them a lot of power and requires more responsibility (since they can crash the system). But we’re building an OS, so drivers seem less hard now/becomes relatively easy.
+        </p>
+        
+        <h4>
+            Monitor driver
+        </h4>
+        <p>
+            Our first driver will be the monitor driver. This is a pretty simple driver because it doesn’t involve interrupts (described in the next paragraph). There are multiple ways of interacting with the monitor. The most basic one is in VGA-text mode. In this mode, we mainly communicate through mapped memory. The memory represents a 2-dimensional array of characters shown on the screen. In order to set a blinking cursor, we will need to communicate directly with the device through I/O ports. For real graphics, we’ll need to write a driver that interacts with the graphics card, which is much more complex (depending on the graphics card) and much less documented online.
+        </p>
+
+        <h4>
+            Interrupts
+        </h4>
+        <p>
+            Other hardware devices provide us with input, which can come at any point in time. The CPU executes instructions serially from the memory. During program execution, hardware devices have events (e.g. key press on the keyboard or NIC receives data) that need to be handled. In order to handle those events, we have the interrupts mechanism. When an event from a device occurs, the CPU gets a hardware interrupt, which notifies the CPU about an event from a device hardware. Before every instruction the CPU executes, it checks for interrupts. If there is an interrupt, it stops his current program execution and runs the code that handles that specific interrupt. The code handling the interrupt is called ISR (Interrupt Service Routine). Each device has a different handler (ISR) for its interrupts. The IDT (Interrupt Descriptor Table) maps between the interrupts and their handlers. After handling the interrupt, the CPU gets back to its previous context and continues to execute the program where it stopped. As part of our OS, we need to implement the IDT, and ISR for each interrupt.
+        </p>
+        
+        <h4>
+            GDT (Global Descriptor Table)
+        </h4>
+        <p>
+            Now we start a bit with memory management. I wanted to postpone it, but the GDT is required before implementing the IDT and ISRs. The GDT is a table that defines memory segments. It defines different address spaces and its permissions (e.g. top 2GB of memory is the kernel code segment with execute permissions and no write permissions). With GDT we implement segmentation, which is obsolete but still required, so we’ll implement it in the most basic way that won’t interfere with our OS.
+        </p>
+
+        <h4>
+            Some more drivers
+        </h4>
+        <p>
+            Now that we understand hardware interrupts and we implemented GDT and IDT, we can start our more complex drivers.
+            There are 2 big differences with those drivers: 
+            We need to implement ISR and add it to the IDT
+            They have a more complex protocol and behavior
+            For each one of them, we need to find documentation for interacting with them.
+        </p>
+        <p>
+            Keyboard - can be connected via USB or PS/2. USB is more advanced (allows more features such as custom keys) but it’s more complex. 
+            Network - connected via PCI connection. We then need to implement the network stack which takes some time, TCP being the hardest part.
+            Hard drive - SATA, SCSI, IDE, PCI. need to implement a file system also.
+        </p>
+
+        <h4>
+            Building the OS
+        </h4>
+        <p> 
+            Currently, we have many drivers, and we gained a lot of capabilities. Our OS doesn’t do anything yet, and the drivers are not used by any software. Now we can decide what we want to implement and how: memory management, processes, threads, process communication, scheduling, userspace, API for our userspace, UI (CLI, GUI), port some software, running another language on our OS.
+        </p>
+
+        <h4>
+            Possible directions
+        </h4>
+        <p>
+            Each part can be implemented in many ways, it can be extended and be taken to the extreme: <br />
+            We could create an OS that loads all software from the internet.<br />
+            We could implement a great GUI with great UX, with any design we want.<br />
+            We could make a snapshots mechanism like in VMs.<br />
+            We could allow user-mode drivers.<br />
+            We could integrate a language (such as Python) into the OS.<br />
+            There are endless possibilities and ideas.
+        </p>
+
+        <h4>
+            Summary
+        </h4>
+        <p>
+            I hope you got the general idea of how OS is developed. Where to start, what is the starting point, what are the challenges, and what are the possibilities. I hope it helps to understand better concepts in existing OS internals.
+            We started by understanding the boot sequence, understanding what is our starting point. From there we built our C dev env, a basic memory structure, an interrupts infrastructure, and understanding drivers better. Then we talked about how to go next.
+            In later articles, we will talk about the next steps and get into more details about the steps described here.
+        </p>
+
+        <div id="author">
+            <p>
+                Royi Asis<br />
+                1/12/2018
+            </p>
+        </div>
+    </section>
+    
+    <footer>
+        <h2><img src="/images/Extalio.png" alt="Extalio" /></h2>
+        <ul>
+            <li>contact@extalio.com</li>
+            <li>© 2018 EXTALIO. All Rights Reserved.</li>
+        </ul>
+    </footer>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "url": "http://www.extalio.com",
+      "logo": "http://www.extalio.com/images/logo.png"
+      "name": "Extalio",
+      }
+    }
+    </script>
+    <script>initTerminal();</script>
+</body>
+</html>

@@ -1,0 +1,378 @@
+@font-face {
+    font-family: Ubuntu;
+    src: url(/fonts/UbuntuMono-R.woff) format('woff');
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url(/fonts/Poppins-Light.woff) format('woff');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url(/fonts/Poppins-Regular.woff) format('woff');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url(/fonts/Poppins-Medium.woff) format('woff');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url(/fonts/Poppins-SemiBold.woff) format('woff');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url(/fonts/Poppins-Bold.woff) format('woff');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: Rajdhani;
+    src: url(/fonts/Rajdhani-Light.woff) format('woff');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Rajdhani;
+    src: url(/fonts/Rajdhani-Regular.woff) format('woff');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Rajdhani;
+    src: url(/fonts/Rajdhani-Medium.woff) format('woff');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Rajdhani;
+    src: url(/fonts/Rajdhani-SemiBold.woff) format('woff');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Rajdhani;
+    src: url(/fonts/Rajdhani-Bold.woff) format('woff');
+    font-weight: 700;
+}
+
+html {
+    width: 100%;
+}
+
+body {
+    width: 100%;
+    background-color: #192e4d;
+    background-image: url(/images/bg-lines.svg);
+    color: #ffffff;
+}
+
+body, div, section, header, footer, h1, h2, h3, h4, p, ul, li, a, button, input {
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+h2 {
+    font-family: Rajdhani;
+    font-weight: normal;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+h2 span {
+    font-weight: 500;
+    font-size: 1.3em;
+}
+
+.turquoise {
+    color: #63fffe;
+}
+
+.underline {
+    background-color: #63fffe;
+    width: 70px;
+    height: 3px;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+h2 img {
+    height: 0.7em;
+}
+
+#top-bg {
+    position: absolute;
+    height: 860px;
+    width: 100%;
+    z-index: -1;
+}
+
+#bg-lights {
+    background: rgba(20,75,153,1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(20,75,153,1) 0%, rgba(25,46,77,1) 50%, rgba(25,46,77,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(20,75,153,1)), color-stop(50%, rgba(25,46,77,1)), color-stop(100%, rgba(25,46,77,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(20,75,153,1) 0%, rgba(25,46,77,1) 50%, rgba(25,46,77,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(20,75,153,1) 0%, rgba(25,46,77,1) 50%, rgba(25,46,77,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(20,75,153,1) 0%, rgba(25,46,77,1) 50%, rgba(25,46,77,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(20,75,153,1) 0%, rgba(25,46,77,1) 50%, rgba(25,46,77,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#144b99', endColorstr='#192e4d', GradientType=1 );
+    
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: -2;
+    opacity: 0.5;
+}
+
+header {
+    background-image: linear-gradient(180deg, rgba(15, 29, 53, 0.35), rgba(15, 29, 53, 0));
+}
+
+header h1 span {
+    margin: 3px;
+    font-weight: 800;
+}
+
+header h1 {
+    font-family: Rajdhani;
+    font-weight: normal;
+    font-size: 30px;
+    font-weight: 100;
+}
+
+#header-content {
+    margin: auto;
+    padding: 15px 0;
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: 1fr 170px;
+}
+
+header h1 img {
+    height: 22px;
+    margin-left: 30px;
+}
+
+header nav {
+    line-height: 22px;
+    height: 22px;
+    margin: auto;
+    font-size: 14px;
+    font-family: Poppins;
+    padding-right: 50px;
+}
+
+header nav ul {
+    list-style: none;
+}
+
+header nav ul li {
+    float: left;
+    margin-left: 2.5em;
+    position: relative;
+}
+
+header nav ul li button {
+    color: #ffffff;
+    text-decoration: none;
+    background: none;
+    cursor: pointer;
+    border: none;
+    font-family: Poppins;
+    margin-bottom: 2px;
+}
+
+header nav ul li button:hover {
+    border-bottom: solid 2px rgb(99, 255, 254);
+    margin-bottom: 0;
+}
+
+#contact-email {
+    display: none;
+    position: absolute;
+    left: -80%;
+    bottom: -30px;
+    color: #fff;
+    font-weight: 100;
+    font-size: 0.95em;
+    letter-spacing: 0.2px;
+}
+
+#contact-email a {
+    text-decoration: none;
+    color: #fff;
+    display: none;
+}
+
+#bg-logo {
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    background: url(/images/bg-Extalio.png) no-repeat center;
+    background-position: center;
+    background-size: 1232px 200px;
+    height: 200px;
+    opacity: 0.2;
+}
+
+#blog {
+    margin-top: 100px;
+    display: none;
+}
+
+#blog h2 span {
+    margin: 2px;
+}
+
+#blog ul {
+    margin: auto;
+    padding-right: 10px;
+    margin-top: 50px;
+    display: grid;
+    width: 820px;
+    grid-template-columns: 1fr 1fr 1fr;
+    list-style: none;
+}
+
+#blog ul li {
+    float: left;
+    margin-left: 10px;
+    font-family: Poppins;
+    padding: 30px;
+    border-top: 2px solid #63fffe;
+    height: 290px;
+    background-image: -moz-linear-gradient( 90deg, rgb(23,40,69) 0%, rgb(23,46,93) 100%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(23,40,69) 0%, rgb(23,46,93) 100%);
+    background-image: -ms-linear-gradient( 90deg, rgb(23,40,69) 0%, rgb(23,46,93) 100%);
+    box-shadow: 1.882px 17.901px 73px 0px rgba(0, 0, 0, 0.5);
+}
+
+#blog ul li h4 {
+    text-align: left;
+    font-family: Rajdhani;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+#blog ul li p {
+    margin-top: 30px;
+    font-size: 14px;
+    font-family: Poppins;
+    font-weight: 100;
+    color: rgba(168, 198, 242, 0.65);
+    text-align: left;
+    height: 150px;
+}
+
+#blog ul li a {
+    color: #a8c6f2;
+    display: inline-block;
+    margin-top: 35px;
+    font-size: 14px;
+    color: rgb(99, 255, 254);
+    text-decoration: none;
+    text-align: left;
+    font-weight: 300;
+    border-bottom: solid 2px rgba(255, 255, 255, 0.6);
+}
+
+#blog ul li a:hover {
+    border-bottom: solid 3px #ffffff;
+}
+
+footer {
+    margin-top: 70px;
+}
+
+footer ul {
+    list-style: none;
+    margin: 10px;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 13px;
+    font-weight: 100;
+    text-transform: uppercase;
+    color: rgba(168, 198, 242, 0.5);
+}
+
+footer ul li {
+    margin-top: 6px;
+}
+
+@media only screen and (max-width: 700px) {
+    body {
+        background-image: none;
+    }
+
+    #header-content {
+        max-width: 600px;
+    }
+    
+    h2 {
+        font-size: 28px;
+        font-weight: 500;
+    }
+
+    h2 span {
+        font-weight: 500;
+        font-size: 1.3em;
+    }
+    
+    #contact-email a {
+        display: inline;
+    }
+    
+    #email-address {
+        display: none;
+    }
+    
+    #top-bg {
+        display: none;
+    }
+    
+    #bg-logo {
+        height: 85px;
+        background-size: 524px 85px;
+    }
+}
+
+#article {
+    font-family: Poppins;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 70px;
+}
+
+#article h2 {
+    font-family: Poppins;
+    text-transform: capitalize;
+}
+
+#article h4 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#article p {
+    font-size: 14px;
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+
+#author {
+    border-left: 2px solid #63fffe;
+    padding-left: 15px;
+    margin-left: 0px;
+}
