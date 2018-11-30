@@ -397,11 +397,14 @@ footer ul li {
     color: #cccccc;
 }
 
+.article-sum a {
+    text-decoration: none;
+}
+
 .article-sum a p {
     font-size: 14px;
     font-weight: 100;
     margin-bottom: 20px;
-    text-decoration: none;
     color: #ffffff;
 }
 
