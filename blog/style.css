@@ -315,46 +315,8 @@ footer ul li {
     margin-top: 6px;
 }
 
-@media only screen and (max-width: 700px) {
-    body {
-        background-image: none;
-    }
-
-    #header-content {
-        max-width: 600px;
-    }
-    
-    h2 {
-        font-size: 28px;
-        font-weight: 500;
-    }
-
-    h2 span {
-        font-weight: 500;
-        font-size: 1.3em;
-    }
-    
-    #contact-email a {
-        display: inline;
-    }
-    
-    #email-address {
-        display: none;
-    }
-    
-    #top-bg {
-        display: none;
-    }
-    
-    #bg-logo {
-        height: 85px;
-        background-size: 524px 85px;
-    }
-}
-
 #article {
     font-family: Poppins;
-    width: 100%;
     max-width: 700px;
     margin: auto;
     margin-top: 70px;
@@ -386,7 +348,6 @@ footer ul li {
 
 .article-sum {
     font-family: Poppins;
-    width: 100%;
     max-width: 750px;
     margin: auto;
     margin-top: 70px;
@@ -420,4 +381,49 @@ footer ul li {
 
 .article-sum a:hover p {
     color: rgba(168, 198, 242, 1);
+}
+
+@media only screen and (max-width: 700px) {
+    body {
+        background-image: none;
+    }
+    
+    header h1 span {
+        margin-left: 30px;
+    }
+
+    #header-content {
+        max-width: 600px;
+    }
+    
+    h2 {
+        font-size: 28px;
+        font-weight: 500;
+    }
+
+    h2 span {
+        font-weight: 500;
+        font-size: 1.3em;
+    }
+    
+    #contact-email a {
+        display: inline;
+    }
+    
+    #email-address {
+        display: none;
+    }
+    
+    #top-bg {
+        display: none;
+    }
+    
+    #bg-logo {
+        height: 85px;
+        background-size: 524px 85px;
+    }
+    
+    #article, .article-sum {
+        padding: 0 20px;
+    }
 }
