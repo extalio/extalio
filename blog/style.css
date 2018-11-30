@@ -151,6 +151,11 @@ header h1 {
     font-weight: 100;
 }
 
+header h1 a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
 #header-content {
     margin: auto;
     padding: 15px 0;
