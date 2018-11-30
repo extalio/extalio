@@ -376,3 +376,35 @@ footer ul li {
     padding-left: 15px;
     margin-left: 0px;
 }
+
+.article-sum {
+    font-family: Poppins;
+    width: 100%;
+    max-width: 750px;
+    margin: auto;
+    margin-top: 70px;
+    margin-bottom: 100px;
+}
+
+.article-sum h2 a {
+    font-family: Poppins;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.article-sum h2 a:hover {
+    color: #cccccc;
+}
+
+.article-sum a p {
+    font-size: 14px;
+    font-weight: 100;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.article-sum a:hover p {
+    color: #cccccc;
+}
