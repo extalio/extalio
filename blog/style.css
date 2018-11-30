@@ -426,4 +426,8 @@ footer ul li {
     #article, .article-sum {
         padding: 0 20px;
     }
+    
+    #article p, .article-sum a p {
+        font-size: 16px;
+    }
 }
