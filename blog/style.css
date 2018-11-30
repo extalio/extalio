@@ -391,10 +391,11 @@ footer ul li {
     text-transform: capitalize;
     text-decoration: none;
     color: #ffffff;
+    transition: 0.4s color;
 }
 
 .article-sum h2 a:hover {
-    color: #cccccc;
+    color: rgba(168, 198, 242, 1);
 }
 
 .article-sum a {
@@ -406,8 +407,9 @@ footer ul li {
     font-weight: 100;
     margin-bottom: 20px;
     color: #ffffff;
+    transition: 0.4s color;
 }
 
 .article-sum a:hover p {
-    color: #cccccc;
+    color: rgba(168, 198, 242, 1);
 }
