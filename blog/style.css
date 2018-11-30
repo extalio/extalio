@@ -320,6 +320,7 @@ footer ul li {
     max-width: 700px;
     margin: auto;
     margin-top: 70px;
+    padding: 0 20px;
 }
 
 #article h2 {
@@ -352,6 +353,7 @@ footer ul li {
     margin: auto;
     margin-top: 70px;
     margin-bottom: 100px;
+    padding: 0 20px;
 }
 
 .article-sum h2 a {
@@ -387,10 +389,6 @@ footer ul li {
     body {
         background-image: none;
     }
-    
-    header h1 span {
-        margin-left: 30px;
-    }
 
     #header-content {
         max-width: 600px;
@@ -423,11 +421,13 @@ footer ul li {
         background-size: 524px 85px;
     }
     
-    #article, .article-sum {
-        padding: 0 20px;
-    }
-    
     #article p, .article-sum a p {
         font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    header h1 span {
+        margin-left: 30px;
     }
 }
