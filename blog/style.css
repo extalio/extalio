@@ -334,11 +334,18 @@ footer ul li {
     letter-spacing: 0.4px;
 }
 
-#article p {
+#article p, ul, ol {
     font-size: 14.5px;
     font-weight: 100;
     margin-bottom: 20px;
     letter-spacing: 0.4px;
+}
+
+#article ul, ol {
+    margin: 0;
+    padding: 0;
+    margin-left: 16px;
+    margin-top: -20px;
 }
 
 #author {

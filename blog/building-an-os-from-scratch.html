@@ -54,140 +54,150 @@
         </h2>
         <div class="underline"></div>
         <p>
-            This article in an intro to OS development, its basics, and concepts. It is supposed to give a glance into the journey of developing an OS from scratch. It is not intended to be a full guide at all, but to give a direction and understanding in high-level. For further details, you can search Google.
+            This article is an intro to OS development. It is a brief overview of the development process I went through: where to start, what needs to be done, and what are the challenges. In the next article, I will get into more details.
         </p>
         <h4>
             Requirements
         </h4>
         <p>
-            I assume you are a developer or researcher and you have a basic understanding of OS internals and computer hardware.
+            I assume you are a developer or a researcher with a basic understanding of OS internals and computer hardware.
         </p>
 
         <h4>
             How do we start?
         </h4>
         <p>
-            We have hardware, and we want it to run our code. First of all, we need to understand how the hardware bootstraps and understand how we make it run our code.
+            Before we start with the software we need to understand the hardware that executes our software, specifically, we need to understand how the hardware bootstraps and how it expects to find the software. We are going to use Intel’s x86 architecture. Although there are many CPU architectures, the concepts described in the article are similar.
         </p>
         
         <h4>Boot Sequence</h4>
         <p>
-            When we power on our PC, the firmware of the motherboard (also known as BIOS or UEFI) starts to run, it does some hardware checks (called POST, or Power On Self Test) and looks for software to run next. The software it looks for is the bootloader. The BIOS looks for a bootloader in hardware devices (e.g., hard disk, CD, network) at a specific location with a magic signature. It loads the bootloader to the memory and runs it. The bootloader then does a small setup and looks for the next software to run which is our OS. It looks for it at a pre-defined location with a magic signature that contains our OS code which is not loaded to memory and run.. Then it loads the code to memory and runs it. This is our OS code running now!This article in an intro to OS development, its basics, and concepts. It is supposed to give a glance into the journey of developing an OS from scratch. It is not intended to be a full guide at all, but to give a direction and understanding in high-level. For further details, you can search Google.
+            When we power on our PC, the firmware of the motherboard (aka BIOS or UEFI) is executed. It checks the hardware (POST) and looks for the software to run next - the bootloader. The BIOS looks for a bootloader in hardware devices (e.g., hard disk, CD, network). Then it loads the first bootloader it finds into the memory and executes it. The main goal of the bootloader is to load the OS. It changes the CPU’s mode from real-mode which is a very limited mode of the CPU (for example, we have access to only ~1MB of memory) to protected-mode, which is intended for running the OS. Then, it loads the OS. We could write our own bootloader, but I preferred to focus on the OS so I used an existing bootloader - GRUB.
         </p>
         <h4>
-            Now we start with os dev
+            Starting point
         </h4>
         <p>
-            As the OS we have limitless power but unfortunately can't relly on any dependencies. 
-            As the OS, we can do whatever we want, but we will have to work very hard for it, we cannot rely on any dependency. 
-            We don’t have any API the OS usually provides. 
+            As the OS, we control everything and we can implement anything we want in any way we want. But that comes with a big cost: we have to work very hard for everything since we cannot rely on any dependency: 
             We don’t have drivers: no network, filesystem, monitor, or keyboard. 
-            We can’t use any 3rd-party libraries, not even the C standard library.
-            We can’t even use a standard C compiler.
+            We can’t use 3rd-party libraries, not even the C standard library. 
+            We can’t even use a standard C compiler. 
             There is no user-space, everything is now kernel-space.
+            All we have is RAM, CPU and its assembly instruction set. That’s it.
         </p>
 
         <h4>
-            What do we have?
+            Compiling C
         </h4>
         <p>
-            We have RAM, CPU and its Assembly instructions. That’s it.
-        </p>
-
-        <h4>
-            Let’s start with C
-        </h4>
-        <p>
-            Writing code in C is much better than writing in Assembly, so we need a compiler for that. We could use a normal compiler with some configurations, but it’s recommended to compile your own compiler (although you’ll have to wait ~30 minutes for it to compile). The default compiler assumes it compiles a software for the same system it runs on, so the compiled software will also depend on that system. We need a compiler that doesn’t depend on anything because we don’t have anything. A compiler that runs on a system but compiles code for another system is called cross-compiler. 
+            The first thing we want to do is to be able to write code in C instead of in assembly. For that, we need a compiler. The compiler assumes the software it compiles is going to run on the same machine (with the same OS and CPU architecture). We can configure the compiler not to use any of the current machine’s dependencies, but it’s prone to problems. The solution for that is to compile a compiler (I had to wait ~30 minutes for it to compile).
         </p>
 
         <h4>
             Drivers
         </h4>
         <p>
-            In order to do something interesting, we need to interact with more hardware devices such as monitor, network, and keyboard. In order to do that we need to write some drivers. A driver is a software that communicates directly with hardware devices.
+            To do something interesting, we need to interact with more hardware devices such as the monitor, the NIC, and the keyboard. To do that, we need to write some drivers. A driver is a software that communicates directly with hardware devices.
         </p>
         <p>
-            There are 2 ways for communicating with devices: <br />
-            - Mapped memory - a pre-defined address space with a pre-defined purpose that we read and write to, together with the hardware device. <br />
-            - in and out assembly instructions (called also I/O ports) - they are very similar to send/recv functions in sockets.
+            There are 2 ways for communicating with devices: 
         </p>
+        <ul>
+            <li>
+                <b>Mapped memory</b>: a pre-defined address space with a pre-defined purpose that we read and write to, together with the hardware device.
+            </li>
+            <li>
+                <b>I/O ports</b>: in and out assembly instructions, very similar to send/recv functions in sockets.
+            </li>
+        </ul>
         <p>
-            There are 2 hard things about drivers: <br />
-            - Each hardware device has its own behavior and protocol and they are poorly documented if documented at all.<br />
-            - They usually run in kernel-mode which gives them a lot of power and requires more responsibility (since they can crash the system). But we’re building an OS, so drivers seem less hard now/becomes relatively easy.
+            There are 2 difficulties concerning drivers:
         </p>
-        
+        <ul>
+            <li>
+                Hardware devices may vary a lot in their behavior and protocol and they are poorly documented if documented at all.
+            </li>
+            <li>
+                They usually run in kernel-mode, which gives them more resources and permissions. If not written carefully they can crash the system.
+            </li>
+        </ul>
+
         <h4>
-            Monitor driver
+            The monitor driver
         </h4>
         <p>
-            Our first driver will be the monitor driver. This is a pretty simple driver because it doesn’t involve interrupts (described in the next paragraph). There are multiple ways of interacting with the monitor. The most basic one is in VGA-text mode. In this mode, we mainly communicate through mapped memory. The memory represents a 2-dimensional array of characters shown on the screen. In order to set a blinking cursor, we will need to communicate directly with the device through I/O ports. For real graphics, we’ll need to write a driver that interacts with the graphics card, which is much more complex (depending on the graphics card) and much less documented online.
+            This is a pretty simple driver because it doesn’t involve interrupts (described in the next paragraph). There are multiple ways of interacting with the monitor. The most basic one is in VGA-text mode. In this mode, we mainly communicate through mapped memory. The memory represents a 2-dimensional array of characters shown on the screen. In order to set a blinking cursor, we will need to communicate directly with the device through I/O ports. For real graphics (i.e., drawing pixels and not just text), we need to write a driver that interacts with the graphics card in VGA mode. It is more complex, but possible and will work on most graphics cards. There is one downside - the driver will have low resolution. For high resolution, we will need to write a driver for a specific graphics card and it’s much more complex and much less documented online.
         </p>
-
+        
         <h4>
             Interrupts
         </h4>
         <p>
-            Other hardware devices provide us with input, which can come at any point in time. The CPU executes instructions serially from the memory. During program execution, hardware devices have events (e.g. key press on the keyboard or NIC receives data) that need to be handled. In order to handle those events, we have the interrupts mechanism. When an event from a device occurs, the CPU gets a hardware interrupt, which notifies the CPU about an event from a device hardware. Before every instruction the CPU executes, it checks for interrupts. If there is an interrupt, it stops his current program execution and runs the code that handles that specific interrupt. The code handling the interrupt is called ISR (Interrupt Service Routine). Each device has a different handler (ISR) for its interrupts. The IDT (Interrupt Descriptor Table) maps between the interrupts and their handlers. After handling the interrupt, the CPU gets back to its previous context and continues to execute the program where it stopped. As part of our OS, we need to implement the IDT, and ISR for each interrupt.
+            Other hardware devices generate input, which can come at any point in time. The CPU executes instructions serially from the memory. During program execution, hardware devices have events (such as a key press on the keyboard or data received from the NIC) that need to be handled. In order to handle those events, we have the interrupts mechanism. When an event from a device occurs, the CPU gets a hardware interrupt, which notifies the CPU about an event from a device hardware. Before every instruction the CPU executes, it checks for interrupts. If there is an interrupt, it stops his current program execution and runs the code that handles that specific interrupt. The code handling the interrupt is called ISR (Interrupt Service Routine, not to be confused with In-Service Register). Each device has a different handler (ISR) for its interrupts. The IDT (Interrupt Descriptor Table) maps between the interrupts and their handlers. After handling the interrupt, the CPU gets back to its previous context and continues to execute the program where it stopped. As part of our OS, we need to implement the IDT and an ISR for each interrupt.
         </p>
-        
+
         <h4>
             GDT (Global Descriptor Table)
         </h4>
         <p>
-            Now we start a bit with memory management. I wanted to postpone it, but the GDT is required before implementing the IDT and ISRs. The GDT is a table that defines memory segments. It defines different address spaces and its permissions (e.g. top 2GB of memory is the kernel code segment with execute permissions and no write permissions). With GDT we implement segmentation, which is obsolete but still required, so we’ll implement it in the most basic way that won’t interfere with our OS.
+            Now we start a bit with memory management. Implementing the GDT is required before implementing the IDT and ISRs. The GDT is a table that defines memory segments, it defines different address spaces and their permissions (for example, top 1GB of memory is the kernel data segment with read/write permissions and no execute permissions). With GDT we implement segmentation, which is obsolete but still required, so we’ll implement a flat-memory model (all segments overlap and cover the whole address space).
         </p>
-
+        
         <h4>
-            Some more drivers
+            Back to drivers
         </h4>
         <p>
-            Now that we understand hardware interrupts and we implemented GDT and IDT, we can start our more complex drivers.
-            There are 2 big differences with those drivers: 
-            We need to implement ISR and add it to the IDT
-            They have a more complex protocol and behavior
-            For each one of them, we need to find documentation for interacting with them.
+            Now that we understand hardware interrupts and we implemented GDT and IDT, we can work on more complex drivers. There are 2 big differences with these drivers:
+        </p>
+        <ol>
+            <li>We need to implement an interrupt handler (ISR) and add it to the IDT</li>
+            <li>They have a more complex protocol and behavior</li>
+        </ol>
+        <p>
+            For each one of them, we need to find documentation (which sometimes is not an easy task).
         </p>
         <p>
-            Keyboard - can be connected via USB or PS/2. USB is more advanced (allows more features such as custom keys) but it’s more complex. 
-            Network - connected via PCI connection. We then need to implement the network stack which takes some time, TCP being the hardest part.
-            Hard drive - SATA, SCSI, IDE, PCI. need to implement a file system also.
+            Those are the most important drivers we might implement next:
         </p>
+        <ul>
+            <li>
+                <b>Keyboard</b>: it can be connected via USB or PS/2. USB is more advanced (allows more features such as custom keys) but it’s more complex.
+            </li>
+            <li>
+                <b>NIC</b>: it is connected via a PCI connection. After finding it among other PCI devices, we need to implement the network stack (ARP, IP, UDP, TCP, etc), TCP being the hardest part.
+            </li>
+            <li>
+                <b>Hard drive</b>: it is connected through ATA/PATA/SATA interface, allowing to read and write directly to sectors in the hard disk through I/O ports. We then need to implement a file system (such as FAT, NTFS, ext).
+            </li>
+        </ul>
 
         <h4>
-            Building the OS
-        </h4>
-        <p> 
-            Currently, we have many drivers, and we gained a lot of capabilities. Our OS doesn’t do anything yet, and the drivers are not used by any software. Now we can decide what we want to implement and how: memory management, processes, threads, process communication, scheduling, userspace, API for our userspace, UI (CLI, GUI), port some software, running another language on our OS.
-        </p>
-
-        <h4>
-            Possible directions
+            Advanced OS features
         </h4>
         <p>
-            Each part can be implemented in many ways, it can be extended and be taken to the extreme: <br />
+            After coding the drivers, we gained a lot of capabilities we can use. We can decide what we want to implement and how: memory management, processes, threads, scheduling, process communication, userspace, API for userspace, POSIX-compatibility, UI (CLI, GUI), porting an existing software to our OS, and more.
+        </p>
+        <p>
+            Each part can be implemented in many ways, it can be extended and be taken to the extreme:<br />
             We could create an OS that loads all software from the internet.<br />
-            We could implement a great GUI with great UX, with any design we want.<br />
+            We could implement an os-level, web-based GUI, similar to Electron.<br />
             We could make a snapshots mechanism like in VMs.<br />
             We could allow user-mode drivers.<br />
-            We could integrate a language (such as Python) into the OS.<br />
+            We could implement most of the OS in a high-level language such as Python.<br />
             There are endless possibilities and ideas.
         </p>
 
         <h4>
-            Summary
+            Wrap-up
         </h4>
-        <p>
-            I hope you got the general idea of how OS is developed. Where to start, what is the starting point, what are the challenges, and what are the possibilities. I hope it helps to understand better concepts in existing OS internals.
-            We started by understanding the boot sequence, understanding what is our starting point. From there we built our C dev env, a basic memory structure, an interrupts infrastructure, and understanding drivers better. Then we talked about how to go next.
-            In later articles, we will talk about the next steps and get into more details about the steps described here.
+        <p> 
+            We started by understanding the boot sequence and our starting point. Then we set up our development environment, a basic memory structure, an interrupt infrastructure and drivers. I hope you got the general idea of how an OS is developed: where and how to start, what are the challenges, and what are the possibilities. In the next article, we will get into more details, stay tuned.
         </p>
 
         <div id="author">
             <p>
                 Royi Asis<br />
-                1/12/2018
+                17/12/2018
             </p>
         </div>
     </section>
