@@ -325,7 +325,7 @@ footer ul li {
 
 #article h2 {
     font-family: Poppins;
-    text-transform: capitalize;
+    text-transform: none;
 }
 
 #article h4 {
