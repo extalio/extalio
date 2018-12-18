@@ -687,6 +687,15 @@ header nav ul li button:hover {
     margin-left: 10px;
 }
 
+#about ul li h4 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#about ul li h4 a:hover {
+    text-decoration: underline;
+}
+
 #about ul li div {
     height: 100px;
 }
