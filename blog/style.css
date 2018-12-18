@@ -315,6 +315,30 @@ footer ul li {
     margin-top: 6px;
 }
 
+#rss {
+    font-family: Poppins;
+    color: rgba(168, 198, 242, 0.5);
+    text-decoration: none;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 20px;
+    display: block;
+    height: 20px;
+    width: 70px;
+    transition: 0.4s color;
+}
+
+#rss:hover {
+    color: rgba(168, 198, 242, 0.8);
+}
+
+#rss img {
+    vertical-align: middle;
+    height: 20px;
+    width: 20px;
+    margin-top: -2.5px;
+}
+
 article {
     font-family: Poppins;
     max-width: 700px;
