@@ -74,7 +74,7 @@ body {
     color: #ffffff;
 }
 
-body, div, section, header, footer, h1, h2, h3, h4, p, ul, li, a, button, input {
+body, div, section, article, header, footer, h1, h2, h3, h4, p, ul, li, a, button, input {
     margin: 0;
     padding: 0;
     outline: none;
@@ -315,7 +315,7 @@ footer ul li {
     margin-top: 6px;
 }
 
-#article {
+article {
     font-family: Poppins;
     max-width: 700px;
     margin: auto;
@@ -323,25 +323,25 @@ footer ul li {
     padding: 0 20px;
 }
 
-#article h2 {
+article h2 {
     font-family: Poppins;
     text-transform: none;
 }
 
-#article h4 {
+article h4 {
     font-size: 15px;
     font-weight: 600;
     letter-spacing: 0.4px;
 }
 
-#article p, ul, ol {
+article p, ul, ol {
     font-size: 14.5px;
     font-weight: 100;
     margin-bottom: 20px;
     letter-spacing: 0.4px;
 }
 
-#article ul, ol {
+article ul, ol {
     padding: 0;
     margin-left: 16px;
     margin-top: -20px;
