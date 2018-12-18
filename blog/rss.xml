@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+<channel>
+  <title>Extalio Blog</title>
+  <link>https://extalio.com/blog</link>
+  <description></description>
+  <item>
+    <title>Building an OS from Scratch</title>
+    <link>https://extalio.com/blog/building-an-os-from-scratch.html</link>
+    <description>Intro to OS development, a brief overview of the development process I went through: where to start, what needs to be done, and what are the challenges.</description>
+  </item>
+</channel>
+</rss>
