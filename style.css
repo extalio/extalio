@@ -143,7 +143,7 @@ header {
     padding: 15px 0;
     max-width: 900px;
     display: grid;
-    grid-template-columns: 1fr 170px;
+    grid-template-columns: 1fr 220px;
 }
 
 header h1 img {
@@ -168,6 +168,15 @@ header nav ul li {
     float: left;
     margin-left: 2.5em;
     position: relative;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header nav ul li a:hover {
+    border-bottom: solid 2px rgb(99, 255, 254);
 }
 
 header nav ul li button {
