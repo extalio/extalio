@@ -472,6 +472,10 @@ pre {
     #article p, .article-sum a p {
         font-size: 16px;
     }
+    
+    pre, img {
+        max-width: 90%;
+    }
 }
 
 @media only screen and (max-width: 400px) {
