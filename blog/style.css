@@ -380,7 +380,7 @@ article img {
     margin: 30px auto;
 }
 
-article a, a:visited {
+article a, article a:visited {
     color: rgb(99, 255, 254);
 }
 
