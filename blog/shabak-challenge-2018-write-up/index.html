@@ -168,8 +168,16 @@ save_to_flash(interrupt_buffer, length);</code></pre>
 }</code></pre>
         <p>
             First, there is the parse function which processes the data from the GPS component and determines its format. The GPS data can be in one of two formats: <a href="http://aprs.gids.nl/nmea/#gga">GPGGA</a> or <a href="http://aprs.gids.nl/nmea/#rmc">GPRMC</a> (both are GPS location protocols). Then, the relevant format function is called:<br />
-            format1() - parses GPRMC data on device startup. Magic ‘a’ is 0.<br />
-            format2() - parses GPGGA data when should_save flag is TRUE (will be explained later). Magic ‘a’ is 1.<br />
+        </p>
+        <ul>
+            <li>
+                format1() - parses GPRMC data on device startup. Magic ‘a’ is 0.
+            </li>
+            <li>
+                format2() - parses GPGGA data when should_save flag is TRUE (will be explained later). Magic ‘a’ is 1.
+            </li>
+        </ul>
+        <p>
             The buffer passed to the format functions is the GPS data in the form of a string array.
         </p>
         <h4>
@@ -393,7 +401,7 @@ Reveal the exact date and time of the planned attack.</code></pre>
 4 - Pla}$eva$ehh$a|gmpa`$bkv$jas$}aev#w$ara*
 7 - Nitofkkfo+'ohwbarkk~'f'khs'ha'wbhwkb'pnkk'</code></pre>
         <p>
-            I tried all the basic stuff: adding, decreasing, ANDing, and XORing the char values with the counter value. The encryption was a simple XOR with the counter value.
+            I tried all the basic stuff: adding, decrementing, ANDing, and XORing the char values with the counter value. The encryption was a simple XOR with the counter value.
         </p>
         <h4>Challenge completed!</h4>
         <img height=220 src="well-done.png" />
