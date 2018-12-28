@@ -218,7 +218,7 @@ save_to_flash(interrupt_buffer, length);</code></pre>
         <p>By default, GPGGA is written:</p>
         <img src="GPGGA-format.png" />
         <p>Upon interrupt:</p>
-        <img src="Interrupt-format.png" />
+        <img src="interrupt-format.png" />
         <p>
             Now that we understand the structure of the memory dump, we can parse it. Trying to parse the bin file, I found that one of the entries is corrupted, as my program had an exception and couldn’t read the whole file. A small fix and I had the whole bin file parsed.
         </p>
