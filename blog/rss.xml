@@ -6,6 +6,11 @@
   <link>https://extalio.com/blog</link>
   <description></description>
   <item>
+    <title>Shabak Challenge 2018 Write-up</title>
+    <link>https://extalio.com/blog/shabak-challenge-2018-write-up</link>
+    <description>A write-up on the embedded software part in the Shabak challenge 2018.</description>
+  </item>
+  <item>
     <title>Building an OS from Scratch</title>
     <link>https://extalio.com/blog/building-an-os-from-scratch.html</link>
     <description>Intro to OS development, a brief overview of the development process I went through: where to start, what needs to be done, and what are the challenges.</description>
