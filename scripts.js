@@ -319,7 +319,7 @@ function initTerminal() {
     inputElement = document.getElementById("terminal-input");
     outputElement = document.getElementById("terminal-output");
     
-    if (document.location.search.length > 0) {
+    if (isContactScenario()) {
         initContactScenario();
         simulateTerminal();
         return;
@@ -341,8 +341,12 @@ function initTerminal() {
     runTimer(timerLength);
 }
 
+function isContactScenario() {
+    return document.location.search.substr(0, 9) == "?contact=";
+}
+
 function getParams() {
-    paramsStr = document.location.search.substr(1);
+    paramsStr = document.location.search.substr(9);
     params = paramsStr.split("@");
     params[0] = decodeURIComponent(params[0]);
     params[1] = decodeURIComponent(params[1]);
@@ -473,7 +477,7 @@ function toggleEmail() {
 }
 
 function onContactSubmit(form) {
-    nextPage = "http://extalio.com/?" + form.name.value + "@" + form.phone.value;
+    nextPage = "http://extalio.com/?contact=" + form.name.value + "@" + form.phone.value;
     form._next.value = nextPage;
     return true;
 }
