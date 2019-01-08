@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preload" href="/fonts/UbuntuMono-R.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Rajdhani-Medium.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Rajdhani-Bold.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Poppins-Regular.woff" as="font" crossorigin="anonymous">
+    <link href="/xnewsletter/style.css" rel="stylesheet" />
+    <script src="/scripts.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f1d35" />
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+    <meta name="description" content="Top news from December 2018" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127131650-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-127131650-1');
+    </script>
+    <title>xNewsletter #1 - Security Research Newsletter</title>
+</head>
+<body>
+    <div id="top-bg">
+        <div id="bg-lights"></div>
+    </div>
+    
+    <header>
+        <div id="header-content">
+            <h1>
+                <a href="/"><img src="/images/Extalio.png" alt="Extalio" /></a><span class="turquoise">.</span><a href="/">Newsletter</a>
+            </h1>
+            <nav>
+                <ul>
+                    <li>
+                        <button id="email-button" onclick="toggleEmail();">Contact</button>
+                        <div id="contact-email">
+                            <a href="mailto:contact@extalio.com">contact@extalio.com</a>
+                            <div id="email-address">contact@extalio.com</div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <article>
+        <h2>
+            xNewsletter #1
+        </h2>
+        <div class="underline"></div>
+        <p>
+            Going through Twitter and blogs every day and filtering through the junk takes too much time. We figured others are having the same problem. Which is why we decided to compile a list of the interesting content that was published lately. We will publish every few weeks (when enough exciting things have happened).
+        </p>
+        <p>
+            We would love to hear your thoughts! What was most interesting? What was missing? Any additional updates you would like to receive? You can send feedback by replying to this <a href="mailto:xnewsletter@extalio.com">email</a> (or just talking to us :)).
+        </p>
+        <p>
+            If you have friends that may enjoy this - they can subscribe on
+            <a href="https://extal.io/xnews">extal.io/xnews</a> to get the newsletter in the email or use our <a href="https://extalio.com/xnewsletter/rss.xml">RSS</a>.<br />
+
+            Happy hacking in 2019!
+        </p>
+        
+        <h3>
+            35C3
+        </h3>
+        
+        <a href="https://www.youtube.com/watch?v=xp1YDOtWohw">From Zero to Zero Day</a> <i>#madeinisrael</i>
+        <p>
+            RCE in Microsoft Edge’s ChakraCore found by 18-yo Jonathan from MSRC. A type-confusion in the JIT compiler causes the vulnerability. A JavascriptNativeFloatArray is mistaken for a JavascriptArray by abusing a state mismatch with array’s missing values functionality and type conversion through prototype assignment.  This confusion yields an RW primitive which can then be used to overwrite the stack with a ROP chain.
+        </p>
+        
+        <a href="https://www.youtube.com/watch?v=kg0J8nRIAhk">Modern Windows Userspace Exploitation</a> <i>#madeinisrael</i>
+        <p>
+            Overview of current mitigations, bypasses, and basic exploitation terminology (primitives) with concrete examples based on a CTF. Saar walks us through the exploitation process with increasing mitigations - first on windows7 with LFH, then on windows10 with LFH randomization and CFG, then on windows 10 with ACG, CIG, and a restriction on creating child processes. “The point in life is to execute arbitrary code :)”
+        </p>
+        
+        <a href="https://www.youtube.com/watch?v=39yPeiY808w">Attacking Chrome IPC</a>
+        <p>
+            The first half of the lecture is about how to get into vulnerability research, how to get better, and the kind of mindset to have when looking for bugs. In the second half is about how to find vulnerabilities in Chrome IPC, giving a good overview of the system with tips on how to fuzz it.
+        </p>
+        
+        <a href="https://www.youtube.com/watch?v=WbuGMs2OcbE">The Layman's Guide to Zero-Day Engineering</a>
+        <p>
+            This lecture explains how to approach 0day research from nothing to pwn.
+            The covered stages are: Setting expectations, Reconnaissance, Target Selection, Bug Hunting, Exploit Development, Exploit Reliability, and Responsibilities.
+        </p>
+        <a href="https://archive.aachen.ccc.de/35c3ctf.ccc.ac/challenges/">CTF</a>
+        <p>
+            A 48-hour CTF, with more than 600 participating teams, and 30 challenges, in any field of expertise. No one solved some challenges.
+            Pasten team (#madeinisrael) won second place, after winning the first place for 3 consecutive years.<br />
+            Write-ups on a few challenges: <a href="https://www.da.vidbuchanan.co.uk/blog/35c3ctf-collection-writeup.html">Collection</a>, <a href="https://mhackeroni.it/archive/2018/12/30/35c3ctf-newphonewhodis.html">Newphonewhodis</a>, <a href="https://github.com/yannayl/ctf-writeups/blob/master/2018/ccc/sequence/README.md">Sequence</a>.
+        </p>
+            
+        <h3>Vulnerabilities</h3>
+        <a href="https://blog.zimperium.com/freertos-tcpip-stack-vulnerabilities-details/">FreeRTOS TCP/IP Stack Vulnerabilities</a> <i>#madeinisrael</i>
+        <p>
+            A write-up about multiple vulnerabilities in FreeRTOS TCP/IP stack (in several of the major protocols) causing information leaks, DOS, and RCE.
+        </p>
+        
+        <a href="https://googleprojectzero.blogspot.com/2018/12/adventures-in-video-conferencing-part-1.html">Adventures in Video Conferencing</a>
+        <p>
+            A 5-part series is exposing several vulnerabilities with video conferencing applications, such as WebRTC, FaceTime, and Whatsapp. The articles start with an overview of the relevant protocols. In WebRTC (most common VC implementation used) Natashenka focuses on the “signaling” attack surface (before user interactions) - by fuzzing the RTP protocol and modifying chrome. The series provides researchers with the tools and hooks used during the research.
+        </p>
+        
+        <a href="https://research.checkpoint.com/50-adobe-cves-in-50-days/">50 CVEs in 50 Days: Fuzzing Adobe Reader</a> <i>#madeinisrael</i>
+        <p>
+            The Check Point security team discusses the process of finding more than 50 vulnerabilities in JP2KLib.dll (used as a parser by Adobe Reader). They don’t go into details of the vulnerabilities themselves, but rather describe the entire process of looking for them: from setting up the fuzzing environment to coding a wrapper around the DLL, and running WinAFL in optimal conditions.
+        </p>
+        
+        <a href="https://seclists.org/oss-sec/2018/q4/271">systemd-tmpfiles root privilege escalation by following non-terminal symlinks</a>
+        <p>
+            A local privilege escalation bug in the systemd-tmpfiles process. The process makes sure not to operate on symlinked files but does not protect against a case where the symlink is part of the directory.
+        </p>
+        
+        <a href="https://googleprojectzero.blogspot.com/2018/12/on-vbscript.html">On VBScript</a>
+        <p>
+            Found 3 vulnerabilities in VBScript, using grammar fuzzing. One allows writing to freed memory. The seconds allows an OOB read. And the last one causes a reference leak that can trigger a UAF bug. All 3 vulnerabilities are relatively simple.
+        </p>
+        
+        <h3>Interesting Research</h3>
+        <a href="https://blogs.technet.microsoft.com/srd/2018/12/10/first-steps-in-hyper-v-research/">First Steps in Hyper-V Research</a> <i>#madeinisrael</i>
+        <p>
+            Overview of the Hyper-V stack and introduction to how to look for vulnerabilities there.
+        </p>
+        
+        <a href="https://googleprojectzero.blogspot.com/2018/12/searching-statically-linked-vulnerable.html">Searching statically-linked vulnerable library functions in executable code</a>
+        <p>
+            Identifying compiled third-party code is hard because of compiler setting variation. Thomas used hashing methods that preserve similarity between hashes in combination with deep learning. He talks about building the training set, the training, and provides examples of the results. Bottom line: simple string search is 90% as effective as this method.
+        </p>
+        
+        <a href="https://labs.mwrinfosecurity.com/blog/twinkly-twinkly-little-star">Twinkly Twinkly Little Star</a>
+        <p>
+            Mark Barnes analyzed the communication with smart Christmas lights reversed the firmware and used the endpoints to control the lights programmatically and make a snake game out of them. Along the way, found hardcoded credentials to the global MQTT server which can allow an attacker to power off all Christmas lights in the world potentially!
+        </p>
+        
+        <a href="https://tyranidslair.blogspot.com/2018/12/abusing-mount-points-over-smb-protocol.html?m=1">Abusing Mount Points over the SMB Protocol </a>
+        <p>
+            A quick write-up of SMBv2 support of symlinks. The lesser known feature described here is the ability to follow links on the server if a mount point exists. The method could be interesting for red teamers, but what was most interesting to me was James’ thought process when researching this.
+        </p>
+        
+        <h3>New Tools</h3>
+        <a href="https://github.com/ionescu007/Simpleator">Windows-centric x64 user-mode application emulator</a>
+        <p>
+            A windows emulator POC by Alex Ionescu. 
+            Ionescu’s primary goal was to hook and debug system calls for malware analysis easily and to show how easy it is to spin-up an emulated environment without a guest OS image using new windows API introduced in Redstone 4 and Redstone 5 updates.
+        </p>
+        
+        <a href="https://techcommunity.microsoft.com/t5/Windows-Kernel-Internals/Windows-Sandbox/ba-p/301849">Windows Sandbox</a>
+        <p>
+            A new sandbox by Microsoft that allows execution of untrusted code in an isolated and disposable environment. When the sandbox starts, it acts as a clean Windows installation, and when stopped everything is discarded. The post starts by presenting the features with a quick-start guide and then goes deeper into the internals of how the image is generated, how the memory is managed, how scheduling is done without disturbing the host, how such a light footprint is achieved through snapshotting, and more.
+        </p>
+        
+        <a href="https://thehackernews.com/2018/12/sndbox-malware-analysis-tool.html">SNDBOX: AI-Powered Online Automated Malware Analysis Platform</a> <i>#madeinisrael</i>
+        <p>
+            A malware analysis tool by Ariel Koren and Dr. Ran Dubin :) The tool fools the malware into thinking it is not running in a sandbox by creating wrappers around kernel functions. Even malware that sleeps before executing is tricked into executing immediately. It also has some unique features like RPC monitoring.
+        </p>
+        
+        <a href="https://github.com/hasherezade/pe-sieve">Pe-sieve</a>
+        <p>
+            A process memory scanner that recognizes and dumps a variety of potentially malicious implants (replaced/injected PEs, shellcodes, inline hooks, hollowed processes, process doppelganging, and more). 
+        </p>
+        
+
+        <div id="author">
+            <p>
+                We hope you enjoyed as we have.<br />
+                Your friends can subscribe on <a href="https://extal.io/xnews">extal.io/xnews</a> to get the newsletter in the email or use our <a href="https://extalio.com/xnewsletter/rss.xml">RSS</a>.
+            </p>
+        </div>
+    </article>
+    
+    <footer>
+        <h2><img src="/images/Extalio.png" alt="Extalio" /></h2>
+        <ul>
+            <li>contact@extalio.com</li>
+            <li>© 2018 EXTALIO. All Rights Reserved.</li>
+        </ul>
+    </footer>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "url": "http://www.extalio.com",
+      "logo": "http://www.extalio.com/images/logo.png"
+      "name": "Extalio",
+      }
+    }
+    </script>
+    <script>initTerminal();</script>
+</body>
+</html>
