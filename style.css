@@ -224,6 +224,33 @@ header nav ul li button:hover {
     font-weight: 500;
 }
 
+.roles, #jobs {
+    text-align: center;
+    height: 1.2em;
+    vertical-align: middle;
+    margin-top: -10px;
+    transition-property: margin-left;
+    transition-duration: 0.55s;
+    transition-timing-function: ease-in-out;
+}
+
+.roles-container, #jobs-container {
+    display: inline-block;
+    overflow: hidden;
+    width: 0;
+    height: 1.2em;
+    vertical-align: middle;
+    margin-top: -7px;
+    transition-property: width;
+    transition-duration: 0.55s;
+    transition-timing-function: ease-in-out;
+}
+
+.roles-container-container, #jobs-container-container{
+    display: inline;
+    transition: margin-right 0.55s ease-in-out, margin-left 0.55s ease-in-out;
+}
+
 #terminal {
     background-color: rgba(15, 29, 53, 0.6);
     color: #eee;

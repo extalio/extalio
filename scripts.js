@@ -481,3 +481,61 @@ function onContactSubmit(form) {
     form._next.value = nextPage;
     return true;
 }
+
+function sloganAnimation() {
+    roles = document.getElementsByClassName('roles');
+    container = document.getElementsByClassName('roles-container');
+    containerContainer = document.getElementsByClassName('roles-container-container');
+    jobs = document.getElementById('jobs');
+    jobsContainer = document.getElementById('jobs-container');
+    jobsContainerContainer = document.getElementById('jobs-container-container');
+    
+    role = roles[0];
+    margin = 67.5; //pixles
+    jobsMargin = 59;
+    if (role.innerHTML == "researchers") {
+        text = "engineers";
+        width = 135;
+        jobsText = "engineering";
+        jobsWidth = 165;
+    } else {
+        text = "researchers";
+        width = 162;
+        jobsText = "research";
+        jobsWidth = 118;
+    }
+    
+    for (i = 0; i < roles.length; i++) {
+        closeBracketsAnimation(roles[i], container[i], containerContainer[i], margin);
+        setTimeout(openBracketsAnimation, 610, roles[i], container[i], containerContainer[i], text, width);
+    }
+    closeBracketsAnimation(jobs, jobsContainer, jobsContainerContainer, jobsMargin);
+    setTimeout(openBracketsAnimation, 610, jobs, jobsContainer, jobsContainerContainer, jobsText, jobsWidth);
+    setTimeout(sloganAnimation, 5000);
+}
+
+function closeBracketsAnimation(role, container, containerContainer, margin) {
+    var isMobile = document.documentElement.clientWidth < 700;
+    if (isMobile) {
+        margin *= 0.77;
+    }
+    
+    marginStr = margin + "px";
+    role.style.marginLeft = "-" + marginStr;
+    container.style.width = "0";
+    containerContainer.style.marginRight = marginStr;
+    containerContainer.style.marginLeft = marginStr;
+}
+
+function openBracketsAnimation(role, container, containerContainer, text, width) {
+    var isMobile = document.documentElement.clientWidth < 700;
+    if (isMobile) {
+        width *= 0.77;
+    }
+    
+    role.innerHTML = text;
+    container.style.width = width + "px";
+    role.style.marginLeft = "0";
+    containerContainer.style.marginRight = "0";
+    containerContainer.style.marginLeft = "0";
+}
