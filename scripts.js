@@ -511,7 +511,7 @@ function sloganAnimation() {
     }
     closeBracketsAnimation(jobs, jobsContainer, jobsContainerContainer, jobsMargin);
     setTimeout(openBracketsAnimation, 610, jobs, jobsContainer, jobsContainerContainer, jobsText, jobsWidth);
-    setTimeout(sloganAnimation, 5000);
+    setTimeout(sloganAnimation, 6000);
 }
 
 function closeBracketsAnimation(role, container, containerContainer, margin) {
