@@ -251,6 +251,10 @@ header nav ul li button:hover {
     transition: margin-right 0.55s ease-in-out, margin-left 0.55s ease-in-out;
 }
 
+#new-line {
+    display: none;
+}
+
 #terminal {
     background-color: rgba(15, 29, 53, 0.6);
     color: #eee;
@@ -815,6 +819,10 @@ footer ul li {
         font-size: 24px;
         width: 280px;
         margin: auto;
+    }
+    
+    #new-line {
+        display: inline;
     }
     
     #terminal {
