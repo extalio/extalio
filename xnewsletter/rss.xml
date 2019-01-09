@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+<channel>
+  <title>xNewsletter</title>
+  <link>https://extalio.com/xnewsletter/1.html</link>
+  <description>Security Research Newsletter</description>
+  <item>
+    <title>xNewsletter #1</title>
+    <link>https://extalio.com/xnewsletter/1.html</link>
+    <description></description>
+  </item>
+</channel>
+</rss>
