@@ -6,6 +6,9 @@
   <link>https://extalio.com/xnewsletter/1.html</link>
   <description>Security Research Newsletter</description>
   <item>
+    <title>xNewsletter #2</title>
+    <link>https://extalio.com/xnewsletter/2.html</link>
+    <description>Curating and summarizing top writeups.</description>
     <title>xNewsletter #1</title>
     <link>https://extalio.com/xnewsletter/1.html</link>
     <description>Going through Twitter and blogs every day and filtering through the junk takes too much time. We figured others are having the same problem. Which is why we decided to compile a list of the interesting content that was published lately. We will publish every few weeks (when enough exciting things have happened).</description>
