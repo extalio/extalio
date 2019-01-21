@@ -352,6 +352,16 @@ article h2 {
     text-transform: none;
 }
 
+article h2 span {
+    font-weight: 500;
+    font-size: 1em;
+}
+
+#new-line {
+    display: none;
+}
+
+
 article h3 {
     margin-top: 50px;
     font-size: 22px;
@@ -452,6 +462,10 @@ pre {
     h2 span {
         font-weight: 500;
         font-size: 1.3em;
+    }
+    
+    #new-line {
+        display: inline;
     }
     
     #contact-email a {
