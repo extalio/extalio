@@ -3,11 +3,11 @@
 
 <channel>
   <title>xNewsletter</title>
-  <link>https://extalio.com/xnewsletter/1.html</link>
+  <link>https://extalio.com/xnewsletter/latest.html?rss</link>
   <description>Security Research Newsletter</description>
   <item>
     <title>xNewsletter #2</title>
-    <link>https://extalio.com/xnewsletter/2.html</link>
+    <link>https://extalio.com/xnewsletter/2.html?rss</link>
     <description>Curating and summarizing top writeups.</description>
   </item>
   <item>
