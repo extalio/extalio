@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preload" href="/fonts/UbuntuMono-R.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Rajdhani-Medium.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Rajdhani-Bold.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Poppins-Regular.woff" as="font" crossorigin="anonymous">
+    <link href="/xnewsletter/style.css" rel="stylesheet" />
+    <script src="/scripts.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f1d35" />
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+    <meta name="description" content="Wi-Fi SoC RCE, New iOS Jailbreak, VirtualBox PXE boot vulnerability, Leica camera firmware research, and more on our latest newsletter." />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127131650-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-127131650-1');
+    </script>
+    <title>xNewsletter #3 - Security Research Newsletter</title>
+</head>
+<body>
+    <div id="top-bg">
+        <div id="bg-lights"></div>
+    </div>
+    
+    <header>
+        <div id="header-content">
+            <h1>
+                <a href="/"><img src="/images/Extalio.png" alt="Extalio" /></a><span class="turquoise">.</span><a href="/">Newsletter</a>
+            </h1>
+            <nav>
+                <ul>
+                    <li>
+                        <button id="email-button" onclick="toggleEmail();">Contact</button>
+                        <div id="contact-email">
+                            <a href="mailto:contact@extalio.com">contact@extalio.com</a>
+                            <div id="email-address">contact@extalio.com</div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <article>
+        <h2>
+            <span class="turquoise">[</span>31/1/19<span class="turquoise">]</span>
+            <span id="new-line"><br /></span>
+             xNewsletter
+        </h2>
+        <div class="underline"></div>
+        
+        <p>
+            Going through Twitter and blogs every day and filtering through the junk takes too much time. We figured others are having the same problem. Which is why we decided to compile a list of the interesting content that was published lately. We will publish every few weeks (when enough exciting things have happened).
+        </p>
+                
+        <h3>
+            Vulnerabilities
+        </h3>
+        
+        <a href="https://googleprojectzero.blogspot.com/2019/01/voucherswap-exploiting-mig-reference.html">voucher_swap: Exploiting MIG reference counting in iOS 12</a>
+        <p>
+            Describes a reference leak vulnerability on XNU, goes into details about MIG functions and the voucher mechanism. The bug leads to a use-after-free exploit that allows sending Mach messages to privileged ports which are used to construct a kernel RW primitive. S0rryMyBad also <a href="http://blogs.360.cn/post/IPC%20Voucher%20UaF%20Remote%20Jailbreak%20Stage%202%20(EN).html">found</a> the vulnerability independently and exploited it a bit differently.
+        </p>
+        
+        <a href="https://www.voidsecurity.in/2019/01/virtualbox-tftp-server-pxe-boot.html">VirtualBox TFTP server (PXE boot) directory traversal and heap overflow vulnerabilities</a>
+        <p>
+            Since the TFTP server on the host assumes Unix paths are used, any file can be downloaded through directory traversal by using Windows paths. The second bug is an improper validation of the TFTP blocksize which causes a heap overflow when reading the file.
+        </p>
+        
+        <a href="https://posts.specterops.io/razer-synapse-3-elevation-of-privilege-6d2802bd0585">Razer Synapse 3 Elevation of Privilege</a>
+        <p>
+            PE vulnerability in the driver of Razer Synapse which loads .NET assemblies from a low-privileged folder after improperly validating their certificate - allowing an attacker to load a malicious DLL with a hijacked certificate.
+        </p>
+        
+        <a href="https://blogs.technet.microsoft.com/srd/2019/01/28/fuzzing-para-virtualized-devices-in-hyper-v/">Fuzzing para-virtualized devices in Hyper-V</a>
+        <p>
+            First, introduces VMBus (Bus used for virtual devices) and VPCI (Bus driver using VMBus) which can be used for fuzzing Hyper-V devices. Then, explains an RCE vulnerability found using this approach. The vulnerability is a device reference count overflow caused by a missing device dereference which leads to a use-after-free vulnerability.
+        </p>
+        
+        <a href="https://medium.com/@lukeberner/how-i-abused-2fa-to-maintain-persistence-after-a-password-change-google-microsoft-instagram-7e3f455b71a1">How I abused 2FA to maintain persistence after a password change </a>
+        <p>
+            After stealing account credentials (Google, Microsoft, Instagram, etc.) with 2FA disabled, an attacker can have access to the account even after a password change.
+        </p>
+        
+            
+        <h3>Interesting Research</h3>
+        <a href="https://alexhude.github.io/2019/01/24/hacking-leica-m240.html">How to Hack an Expensive Camera and Not Get Killed by Your Wife</a>
+        <p>
+            Analyzing and reversing a Leica camera firmware which uses a Fujitsu FR processor on a Softune REALOS. The research included: unpacking the firmware, writing a tool to find REALOS API calls in Fujitsu FR assembly, extracting the interrupt table, and writing another tool that spots UI data in the firmware. During the research, he found a way to get into debug mode through a key combination. Then, he created a device that controls the camera through one of its ports.
+        </p>
+        
+        <a href="https://embedi.org/blog/remotely-compromise-devices-by-using-bugs-in-marvell-avastar-wi-fi-from-zero-knowledge-to-zero-click-rce/#the-most-interesting-bug-to-be-exploited">Remotely compromise devices by using bugs in Marvell Avastar Wi-Fi: from zero knowledge to zero-click RCE</a>
+        <p>
+            Explains the attack surface of Wi-Fi dongles, and how drivers communicate with the SoC. Then, statically analyzing the firmware, and dumping the ThreadX RTOS ROM. He instrumented the SoC to get information without available source code, and after identifying parsing functions, he fuzzed the SoC using afl-unicorn. The fuzzing lead to a few bugs; One of them is an RCE that doesn’t require a network connection.
+        </p>
+        
+        <h3>Tools</h3>
+        <a href="https://github.com/googleprojectzero/winafl/blob/master/readme_pt.md">WinAFL Intel PT mode</a>
+        <p>
+            Intel Processor Trace improves WinAFL’s coverage and eliminates the need to restart the process every time. WinAFL attaches like a debugger and replays parts of the code.
+        </p>
+        
+        <a href="https://blog.talosintelligence.com/2019/01/ddr.html">Dynamic Data Resolver (DDR) - IDA Plugin</a>
+        <p>
+            An IDA plugin that executes and traces the process to provide useful runtime information such as API call monitoring, instruction tracing to see how many times code blocks were executed, and auto-commenting of some dynamic values.
+        </p>
+        
+        <div id="author">
+            <p>
+                We hope you enjoyed as we have.<br />
+                Your friends can subscribe on <a href="https://extal.io/xnews">extal.io/xnews</a> to get the newsletter in the email or use our <a href="https://extalio.com/xnewsletter/rss.xml">RSS</a>.
+            </p>
+        </div>
+    </article>
+    
+    <footer>
+        <h2><a href="/"><img src="/images/Extalio.png" alt="Extalio" /></a></h2>
+        <ul>
+            <li>contact@extalio.com</li>
+            <li>© 2018 EXTALIO. All Rights Reserved.</li>
+        </ul>
+    </footer>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "url": "http://www.extalio.com",
+      "logo": "http://www.extalio.com/images/logo.png"
+      "name": "Extalio",
+      }
+    }
+    </script>
+</body>
+</html>
