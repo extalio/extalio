@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preload" href="/fonts/UbuntuMono-R.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Rajdhani-Medium.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Rajdhani-Bold.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Poppins-Regular.woff" as="font" crossorigin="anonymous">
+    <link href="/xnewsletter/style.css" rel="stylesheet" />
+    <script src="/scripts.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f1d35" />
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+    <meta name="description" content="Linux package manager LPE, container escape vulnerability, bus analysis tool for vehicles, iPhone pointer authentication weaknesses, and more in our latest newsletter." />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127131650-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-127131650-1');
+    </script>
+    <title>xNewsletter #4 - Security Research Newsletter</title>
+</head>
+<body>
+    <div id="top-bg">
+        <div id="bg-lights"></div>
+    </div>
+    
+    <header>
+        <div id="header-content">
+            <h1>
+                <a href="/"><img src="/images/Extalio.png" alt="Extalio" /></a><span class="turquoise">.</span><a href="/">Newsletter</a>
+            </h1>
+            <nav>
+                <ul>
+                    <li>
+                        <button id="email-button" onclick="toggleEmail();">Contact</button>
+                        <div id="contact-email">
+                            <a href="mailto:contact@extalio.com">contact@extalio.com</a>
+                            <div id="email-address">contact@extalio.com</div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <article>
+        <h2>
+            <span class="turquoise">[</span>14/2/19<span class="turquoise">]</span>
+            <span id="new-line"><br /></span>
+             xNewsletter
+        </h2>
+        <div class="underline"></div>
+        
+        <p>
+            Going through Twitter and blogs every day and filtering through the junk takes too much time. We figured others are having the same problem. Which is why we decided to compile a list of the interesting content that was published lately. We will publish every few weeks (when enough exciting things have happened).
+        </p>
+                
+        <h3>
+            Vulnerabilities
+        </h3>
+        
+        <a href="https://shenaniganslabs.io/2019/02/13/Dirty-Sock.html">Privilege Escalation in Ubuntu snapd daemon</a>
+        <p>
+            Snappy is a package manager developed by Canonical that is installed on Ubuntu by default. The snapd daemon exposes an HTTP server listening on two UNIX sockets with 0666 permissions. The HTTP server allows some high privileged operations after checking the uid of the socket’s source. The uid checking can be abused through the socket file name which gets concatenated to the same string and then split. This can allow an attacker to execute high privileged operations such as user creation, leading to local privilege escalation.
+        </p>
+        
+        <a href="https://blog.dragonsector.pl/2019/02/cve-2019-5736-escape-from-docker-and.html">CVE-2019-5736: Escape from Docker and Kubernetes containers to root on host</a>
+        <p>
+            A vulnerability in runc (CLI tool for running containers used by Docker, Kubernetes, etc.) that allows a malicious container to escape to host. An attacker can trick runc to execute itself inside the container which then gains permissions to change the runc binary on the host. The article discusses their approaches during the research, the failed attempts, and the fixes.
+        </p>
+        
+        <a href="https://googleprojectzero.blogspot.com/2019/02/the-curious-case-of-convexity-confusion.html">The Curious Case of Convexity Confusion</a>
+        <p>
+            A vulnerability found in Skia (a graphics library used by Chrome, Firefox, Android, and more) after an insufficient fix of another vulnerability (CVE-2018-6153). Tiny floating point values cause precision issues which affect a shape’s attribute during type conversion. This attribute may cause a wrong drawing algorithm execution, resulting in a negative value when it shouldn’t be possible which leads to an out-of-bounds read/write on the stack.
+        </p>
+        
+        <a href="https://research.checkpoint.com/reverse-rdp-attack-code-execution-on-rdp-clients/">Reverse RDP Attack: Code Execution on RDP Clients</a> <i>#madeinisrael</i>
+        <p>
+            Researching RDP clients using a malicious RDP server. Explains and demonstrates the found vulnerabilities: RCE in FreeRDP and rdesktop due to heap overflows caused by incorrect memory allocations after an integer underflow. Also found a path traversal vulnerability in mstsc when copying files.
+        </p>
+            
+        <h3>Interesting Research</h3>
+        <a href="https://googleprojectzero.blogspot.com/2019/02/examining-pointer-authentication-on.html">Examining Pointer Authentication on the iPhone XS</a>
+        <p>
+            Pointer Authentication (PAC) is a new feature of ARM processors. The article presents several weaknesses with the PAC implementation on iPhone XS. It describes the strategy for forging the key from which the PACs are created.
+        </p>
+        
+        <a href="https://medium.com/tenable-techblog/make-it-rain-with-mikrotik-c90705459bc6">Make It Rain with MikroTik</a>
+        <p>
+            A step by step guide for installing Mikrotik RouterOS on a VM and getting root privileges, finding the binaries on the system, and communicating with them.
+        </p>
+        
+        <a href="https://tyranidslair.blogspot.com/2019/02/a-brief-history-of-basenamedobjects-on.html">A Brief History of BaseNamedObjects on Windows NT</a>
+        <p>
+            A full overview of the poorly documented BaseNamedObjects mechanism in windows (used for instance in CreateEvent function). James gives a full historical overview of the feature itself and discusses the changes made in Windows 10 which for the first time in history make this feature suitable for process isolation.
+        </p>
+        
+        
+        <h3>Tools</h3>
+        
+        <a href="https://google.github.io/clusterfuzz/">ClusterFuzz</a>
+        <p>
+            Scalable fuzzing infrastructure used by Google for fuzzing with OSS-Fuzz. Among the included features: automatic bug filing, test case minimization, regression finding, statistics for analyzing fuzzer performance, and an easy to use web interface. 
+        </p>
+        
+        <a href="https://github.com/schutzwerk/CANalyzat0r">CANalyzat0r</a>
+        <p>
+            A tool for CAN-bus (a central bus in vehicles) analysis that includes logging and packet sniffing capabilities under a friendly GUI interface.
+        </p>
+        
+        <a href="https://github.com/gamozolabs/mesos">mesos</a>
+        <p>
+            A tool for binary code coverage, applying breakpoints on every single block in a program and removing them as they are hit. This is essentially a very fast debugger. Automatically collects minidump of a crashed process that runs under it. Can be modified to create breakpoints handlers to inject inputs (and build fuzzer on top of it).
+        </p>
+        
+        
+        <div id="author">
+            <p>
+                We hope you enjoyed as we have.<br />
+                Your friends can subscribe on <a href="https://extal.io/xnews">extal.io/xnews</a> to get the newsletter in the email or use our <a href="https://extalio.com/xnewsletter/rss.xml">RSS</a>.
+            </p>
+        </div>
+    </article>
+    
+    <footer>
+        <h2><a href="/"><img src="/images/Extalio.png" alt="Extalio" /></a></h2>
+        <ul>
+            <li>contact@extalio.com</li>
+            <li>© 2018 EXTALIO. All Rights Reserved.</li>
+        </ul>
+    </footer>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "url": "http://www.extalio.com",
+      "logo": "http://www.extalio.com/images/logo.png"
+      "name": "Extalio",
+      }
+    }
+    </script>
+</body>
+</html>
