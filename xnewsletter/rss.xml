@@ -6,6 +6,11 @@
   <link>https://extalio.com/xnewsletter/latest.html?rss</link>
   <description>Security Research Newsletter</description>
   <item>
+    <title>xNewsletter #4</title>
+    <link>https://extalio.com/xnewsletter/4.html?rss</link>
+    <description>Linux package manager LPE, container escape vulnerability, bus analysis tool for vehicles, iPhone pointer authentication weaknesses, and more.</description>
+  </item>
+  <item>
     <title>xNewsletter #3</title>
     <link>https://extalio.com/xnewsletter/3.html?rss</link>
     <description>Wi-Fi SoC RCE, New iOS Jailbreak, VirtualBox PXE boot vulnerability, Leica camera firmware research, and more on our latest newsletter.</description>
