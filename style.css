@@ -476,8 +476,8 @@ header nav ul li button:hover {
 }
 
 #reason1 p {
-    text-align: left;
-    margin-left: 40px;
+    margin-top: 40px;
+    margin-left: 20px;
 }
 
 #reason1-left-line {
@@ -909,6 +909,11 @@ footer ul li {
         grid-column: 1 / 6;
         height: 140px !important;
     }
+    
+    #reason1 p {
+        margin-top: 20px;
+    }
+
     
     #reason2 {
         margin-top: 20px;
