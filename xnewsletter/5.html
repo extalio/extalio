@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preload" href="/fonts/UbuntuMono-R.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Rajdhani-Medium.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Rajdhani-Bold.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Poppins-Regular.woff" as="font" crossorigin="anonymous">
+    <link href="/xnewsletter/style.css" rel="stylesheet" />
+    <script src="/scripts.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f1d35" />
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+    <meta name="description" content="GHIDRA, LPE in LG Driver, Thunderclap research, and more in our latest newsletter." />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127131650-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-127131650-1');
+    </script>
+    <title>xNewsletter #5 - Security Research Newsletter</title>
+</head>
+<body>
+    <div id="top-bg">
+        <div id="bg-lights"></div>
+    </div>
+    
+    <header>
+        <div id="header-content">
+            <h1>
+                <a href="/"><img src="/images/Extalio.png" alt="Extalio" /></a><span class="turquoise">.</span><a href="/">Newsletter</a>
+            </h1>
+            <nav>
+                <ul>
+                    <li>
+                        <button id="email-button" onclick="toggleEmail();">Contact</button>
+                        <div id="contact-email">
+                            <a href="mailto:contact@extalio.com">contact@extalio.com</a>
+                            <div id="email-address">contact@extalio.com</div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <article>
+        <h2>
+            <span class="turquoise">[</span>14/3/19<span class="turquoise">]</span>
+            <span id="new-line"><br /></span>
+             xNewsletter
+        </h2>
+        <div class="underline"></div>
+        
+        <p>
+            Going through Twitter and blogs every day and filtering through the junk takes too much time. We figured others are having the same problem. Which is why we decided to compile a list of the interesting content that was published lately. We will publish every few weeks (when enough exciting things have happened).
+        </p>
+                
+        <h3>
+            Vulnerabilities
+        </h3>
+        
+        <a href="http://jackson-t.ca/lg-driver-lpe.html">CVE-2019-8372: Local Privilege Elevation in LG Kernel Driver</a>
+        <p>
+            Vulnerability in a driver that exposes high privilege functionality to an unprivileged process, allowing it to read an EPROCESS security token and use it to gain privilege escalation.
+        </p>
+        
+        <a href="https://blog.orange.tw/2019/02/abusing-meta-programming-for-unauthenticated-rce.html">Hacking Jenkins - Abusing Meta Programming for Unauthenticated RCE</a>
+        <p>
+            A previous article published an authentication vulnerability. This article explains how to take advantage of the vulnerability to execute code. Jenkins has a DSL (Domain Specific Language) called Pipeline built with Groovy. There is a way of sending Jenkins Pipeline code just for validation (not execution). Using a Groovy annotation used for meta-programming, a JAR file can be downloaded from a remote server and get executed.
+        </p>
+        
+        <a href="https://blog.ripstech.com/2019/wordpress-image-remote-code-execution/">WordPress 5.0.0 Remote Code Execution</a>
+        <p>
+            Combining Path Traversal and LFI in Wordpress to gain RCE. The exploitation takes advantage of the image crop code. Cropped images are saved in a path that is based on the image metadata. Manipulating the image metadata allows for Path Traversal and thus saving the image anywhere on the filesystem. Saving the file in the theme directory will load it when the theme is used.
+        </p>
+            
+        <a href="https://perception-point.io/resources/research/cve-2019-0539-exploitation/">CVE-2019-0539 Exploitation</a>
+        <p>
+            Exploiting a Chakra JIT Type Confusion vulnerability. Takes us step by step through the exploitation process, the different hurdles, and ways to overcome them to get a RW primitive.
+        </p>
+        
+        <h3>
+            Interesting Research
+        </h3>
+        
+        <a href="http://thunderclap.io/">Thunderclap</a>
+        <p>
+            IOMMUs are created to protect against Direct Memory Access (DMA) attacks. DMA-enabled devices can RW all system memory. The IOMMU essentially virtualizes the memory that needs to be exposed to a specific device. The problem here is that while communications with the MMU is based on tested kernel code, the driver code that talks to IOMMUs is written by third parties with no understanding of security.
+            The paper gives background on the underlying technology and the threat model, discusses different vulnerabilities they found in all major operating systems, and the possible mitigations.
+        </p>
+            
+        <a href="https://tyranidslair.blogspot.com/2019/03/windows-object-case-sensitivity.html">Windows Object Case Sensitivity</a>
+        <p>
+            Windows has legacy support for case sensitivity but ignores it by default. There is a registry key that controls the lookup. WSL is case sensitive which is why Windows got a new feature of setting a folder attribute that allows sensitive search on that folder.
+            Goes on to find all the object types that support naming and case sensitivity and finds a lookup bug that can be used to plant objects if any are created with an OBJ_CASE_INSENSITIVE flag.
+        </p>
+        
+        
+        <h3>Tools</h3>
+        
+        <a href="https://ghidra-sre.org/ghidra_9.0_PUBLIC_20190228.zip">GHIDRA (mirror)</a>
+        <p>
+            An open source younger brother to IDA from NSA.
+            Notable or missing features: Has an undo button! No Debugger support. Supports project collaboration by design. Has a good decompiler. Smart data flow analysis. Ability to load multiple binaries.
+        </p>
+            
+        <a href="https://github.com/secrary/idenLib">idenLib - Library Function Identification</a>
+        <p>
+            Statically linked library function signature identification with plugins for IDA and x64dbg.
+        </p>
+        
+        <a href="https://github.com/elfmaster/dt_infect">https://github.com/elfmaster/dt_infect</a>
+        <p>
+            Code injection library for ELF binaries. It patches the DT_NEEDED table (used for dynamic linking) and sets another binary as the first entry, which will be looked first for unknown symbols.
+        </p>
+        
+        <div id="author">
+            <p>
+                We hope you enjoyed.<br />
+                Your friends can subscribe on <a href="https://extal.io/xnews">extal.io/xnews</a> to get the newsletter in the email or use our <a href="https://extalio.com/xnewsletter/rss.xml">RSS</a>.
+            </p>
+        </div>
+    </article>
+    
+    <footer>
+        <h2><a href="/"><img src="/images/Extalio.png" alt="Extalio" /></a></h2>
+        <ul>
+            <li>contact@extalio.com</li>
+            <li>© 2018 EXTALIO. All Rights Reserved.</li>
+        </ul>
+    </footer>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "url": "http://www.extalio.com",
+      "logo": "http://www.extalio.com/images/logo.png"
+      "name": "Extalio",
+      }
+    }
+    </script>
+</body>
+</html>
