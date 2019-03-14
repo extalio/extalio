@@ -6,6 +6,11 @@
   <link>https://extalio.com/xnewsletter/latest.html?rss</link>
   <description>Security Research Newsletter</description>
   <item>
+    <title>xNewsletter #5</title>
+    <link>https://extalio.com/xnewsletter/5.html?rss</link>
+    <description>GHIDRA, LPE in LG Driver, Thunderclap research, and more in our latest newsletter.</description>
+  </item>
+  <item>
     <title>xNewsletter #4</title>
     <link>https://extalio.com/xnewsletter/4.html?rss</link>
     <description>Linux package manager LPE, container escape vulnerability, bus analysis tool for vehicles, iPhone pointer authentication weaknesses, and more.</description>
