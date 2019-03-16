@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preload" href="/fonts/UbuntuMono-R.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Rajdhani-Medium.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Rajdhani-Bold.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/Poppins-Regular.woff" as="font" crossorigin="anonymous">
+    <link href="/xnewsletter/style.css" rel="stylesheet" />
+    <script src="/scripts.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f1d35" />
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+    <meta name="description" content="Curating and summarizing top writeups." />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127131650-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-127131650-1');
+    </script>
+    <title>xNewsletter - Security Research Newsletter</title>
+</head>
+<body>
+    <div id="top-bg">
+        <div id="bg-lights"></div>
+    </div>
+    
+    <header>
+        <div id="header-content">
+            <h1>
+                <a href="/"><img src="/images/Extalio.png" alt="Extalio" /></a><span class="turquoise">.</span><a href="/">Newsletter</a>
+            </h1>
+            <nav>
+                <ul>
+                    <li>
+                        <button id="email-button" onclick="toggleEmail();">Contact</button>
+                        <div id="contact-email">
+                            <a href="mailto:contact@extalio.com">contact@extalio.com</a>
+                            <div id="email-address">contact@extalio.com</div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <article>
+        <h2>
+             xNewsletter
+        </h2>
+        <div class="underline"></div>
+                
+        <a href="/xnewsletter/5.html">xNewsletter #5</a>
+        <p>
+            GHIDRA release, LPE in LG Driver, peripheral devices as an attack vector, RCE in Wordpress, and more.
+        </p>
+        
+        <a href="/xnewsletter/4.html">xNewsletter #4</a>
+        <p>
+            Linux package manager LPE, container escape vulnerability, bus analysis tool for vehicles, iPhone pointer authentication weaknesses, and more.
+        </p>
+        
+        <a href="/xnewsletter/3.html">xNewsletter #3</a>
+        <p>
+            Wi-Fi SoC RCE, New iOS Jailbreak, VirtualBox PXE boot vulnerability, Leica camera firmware research, and more.
+        </p>
+        
+        <a href="/xnewsletter/2.html">xNewsletter #2</a>
+        <p>
+            UAF in Chrome, 35C3 CTF Writeup, RCE in Libzmq, page cache attacks, Windows Kernel Explorer, and more.
+        </p>
+        
+        <a href="/xnewsletter/1.html">xNewsletter #1</a>
+        <p>
+            35C3 writeups and lectures, VBScript vulnerabilities, Hyper-V research, Windows Sandbox release, and more.
+        </p>
+
+        
+        <div id="author">
+            <p>
+                You can subscribe on <a href="https://extal.io/xnews">extal.io/xnews</a> to get the newsletter in the email or use our <a href="https://extalio.com/xnewsletter/rss.xml">RSS</a>.
+            </p>
+        </div>
+    </article>
+    
+    <footer>
+        <h2><a href="/"><img src="/images/Extalio.png" alt="Extalio" /></a></h2>
+        <ul>
+            <li>contact@extalio.com</li>
+            <li>© 2018 EXTALIO. All Rights Reserved.</li>
+        </ul>
+    </footer>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "url": "http://www.extalio.com",
+      "logo": "http://www.extalio.com/images/logo.png"
+      "name": "Extalio",
+      }
+    }
+    </script>
+</body>
+</html>
